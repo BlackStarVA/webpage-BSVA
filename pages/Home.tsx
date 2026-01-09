@@ -75,7 +75,6 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
             className="absolute inset-0 opacity-40 transition-transform duration-150 ease-out"
             style={{ transform: `scale(1.05) translateY(${scrollY * 0.05}px)` }}
           >
-            {/* Background of a person working at desk with plants, shelving, and office supplies */}
             <img 
               src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000" 
               alt="Elite Workspace" 
@@ -86,11 +85,12 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
         </div>
         
         <div className="relative z-10 text-center max-w-7xl mx-auto flex flex-col items-center">
-          <div className="reveal relative">
-            <h1 className="text-8xl md:text-9xl lg:text-[14rem] font-black logo-font text-white leading-[0.7] tracking-tighter uppercase relative z-0">
-              BLACK STAR
+          <div className="reveal relative flex flex-col items-center">
+            <h1 className="text-8xl md:text-9xl lg:text-[14rem] font-black logo-font text-white leading-[0.85] tracking-tighter uppercase relative z-0 flex flex-col items-center">
+              <span>BLACK</span>
+              <span>STAR</span>
             </h1>
-            <h2 className="text-7xl md:text-9xl lg:text-[11rem] logo-font text-[#ab7e31] italic font-light leading-none tracking-tighter -mt-10 md:-mt-16 lg:-mt-24 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,1)]">
+            <h2 className="text-7xl md:text-9xl lg:text-[11rem] font-serif text-[#ab7e31] italic font-light leading-none tracking-tighter -mt-8 md:-mt-16 lg:-mt-24 relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,1)]">
               Specialists
             </h2>
           </div>
@@ -115,7 +115,7 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
               onClick={onBookNow}
               className="w-full sm:w-auto px-12 py-6 bg-[#ab7e31] text-black font-black rounded-2xl hover:bg-white transition-all text-[11px] uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(171,126,49,0.3)] group flex items-center justify-center"
             >
-              DISCOVERY CALL <i className="fas fa-phone ml-4 group-hover:rotate-12 transition-transform"></i>
+              BOOK DISCOVERY CALL <i className="fas fa-phone ml-4 group-hover:rotate-12 transition-transform"></i>
             </button>
           </div>
         </div>
@@ -238,7 +238,6 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
                 </button>
              </div>
              
-             {/* Full Width Progress Bar and Indicator */}
              <div className="flex flex-col items-center space-y-4">
                 <div className="w-full h-px bg-white/5 rounded-full overflow-hidden">
                   <div 
@@ -290,7 +289,7 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
                   onClick={onBookNow}
                   className="px-14 py-6 bg-[#ab7e31] text-black font-black rounded-xl hover:bg-white transition-all text-sm tracking-[0.3em] uppercase hover:scale-105 shadow-2xl"
                 >
-                  DISCOVERY CALL
+                  BOOK DISCOVERY CALL
                 </button>
              </div>
           </div>

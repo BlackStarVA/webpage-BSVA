@@ -51,7 +51,6 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
             {activeTab === 'ea' ? 'ASSISTANCE.' : 'FINANCE.'}
           </h2>
           
-          {/* Toggle Buttons - Styled exactly as screenshot (solid vs outline) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
             <button 
               onClick={() => setActiveTab('ea')}
@@ -191,7 +190,6 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
             </div>
           </section>
 
-          {/* Stylized CTA with overlapping text layout and updated button text */}
           <section className="py-40 px-4 text-center">
             <div className="max-w-6xl mx-auto reveal py-16 px-4 bg-black inline-block w-full">
               <div className="relative inline-block mb-12">

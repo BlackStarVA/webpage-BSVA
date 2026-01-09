@@ -90,7 +90,6 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
           </div>
           
           <div className="hidden lg:block">
-            {/* Removed the border box around the links as per user request */}
             <div className="flex items-center space-x-10">
               <Link
                 to="/"
@@ -121,9 +120,9 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
 
               <button
                 onClick={onBookNow}
-                className="bg-[#ab7e31] hover:bg-white text-black px-8 py-3 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_15px_rgba(171,126,49,0.3)]"
+                className="bg-[#ab7e31] hover:bg-white text-black px-8 py-3 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_25px_rgba(171,126,49,0.5)] border border-[#ab7e31]/20 hover:border-white"
               >
-                DISCOVERY CALL
+                BOOK DISCOVERY CALL
               </button>
 
               <div className="relative" ref={dropdownRef}>
@@ -190,7 +189,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
 
             <div className="pt-6">
               <button onClick={onBookNow} className="w-full py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-widest shadow-2xl">
-                DISCOVERY CALL
+                BOOK DISCOVERY CALL
               </button>
             </div>
           </div>
