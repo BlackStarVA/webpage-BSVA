@@ -36,10 +36,6 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
           <div className="col-span-1 md:col-span-2">
             <FooterLogo />
-            <p className="text-gray-400 max-w-sm mb-10 font-light leading-relaxed text-sm">
-              Empowering visionary founders through world-class executive assistance and 
-              precision bookkeeping. Operating as the silent engine behind global impact.
-            </p>
             <div className="flex space-x-8">
               <a href="#" className="text-gray-500 hover:text-[#ab7e31] transition-all transform hover:-translate-y-1"><i className="fab fa-linkedin-in text-xl"></i></a>
               <a href="#" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-instagram text-xl"></i></a>
@@ -60,9 +56,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-black mb-8 uppercase text-[10px] tracking-[0.4em]">Connect with us</h4>
             <ul className="space-y-5 text-gray-400 text-xs font-bold uppercase tracking-widest">
-              <li className="flex items-center group cursor-pointer">
-                <i className="fas fa-envelope text-[#ab7e31] mr-4 w-4 transition-transform group-hover:scale-110"></i> 
-                <span className="group-hover:text-white transition-colors">support@blackstarva.com</span>
+              <li>
+                <Link to="/contact" className="flex items-center group cursor-pointer">
+                  <i className="fas fa-envelope text-[#ab7e31] mr-4 w-4 transition-transform group-hover:scale-110"></i> 
+                  <span className="group-hover:text-white transition-colors">support@blackstarva.com</span>
+                </Link>
               </li>
               <li className="flex items-center group cursor-pointer">
                 <i className="fas fa-map-marker-alt text-[#ab7e31] mr-4 w-4 transition-transform group-hover:scale-110"></i> 

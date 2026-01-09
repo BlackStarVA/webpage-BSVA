@@ -1,85 +1,100 @@
 
-import { Service, PricingPlan, FAQItem, BookkeepingOption } from './types';
+import { Service, PricingPlan, FAQItem } from './types';
 
 export const SERVICES: Service[] = [
   {
     id: 'admin',
     title: 'Executive Administration',
-    description: 'Calendar management, email filtering, travel planning, and meeting coordination.',
+    description: 'Elite calendar management, sophisticated inbox filtering, travel logistics, and proactive meeting coordination.',
     icon: 'fa-calendar-check',
-    priceRate: 35
+    priceRate: 45 
   },
   {
     id: 'bookkeeping',
     title: 'Bookkeeping & Finance',
-    description: 'Accounts payable/receivable, expense tracking, invoicing, and financial reporting.',
+    description: 'Precision accounts management, expense tracking, invoicing, and detailed financial reporting.',
     icon: 'fa-file-invoice-dollar',
-    priceRate: 40
+    priceRate: 47
   },
   {
     id: 'creative',
     title: 'Content & Creative',
-    description: 'Social media management, graphic design, copywriting, and email marketing.',
+    description: 'High-end social media management, graphic design, copywriting, and strategic email marketing.',
     icon: 'fa-pen-nib',
-    priceRate: 50
+    priceRate: 55
   },
   {
     id: 'technical',
     title: 'Technical Support',
-    description: 'CRM setup, website maintenance, data analysis, and software integration.',
+    description: 'CRM optimization, website maintenance, data analysis, and software stack integration.',
     icon: 'fa-code',
-    priceRate: 65
+    priceRate: 70
   },
   {
     id: 'lifestyle',
     title: 'Personal Concierge',
-    description: 'Personal shopping, appointment booking, and event management for busy founders.',
+    description: 'Discreet personal shopping, appointment booking, and event management for high-net-worth founders.',
     icon: 'fa-star',
-    priceRate: 40
+    priceRate: 45
   }
 ];
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    name: 'Stellar Starter',
-    price: '$1,000',
-    hours: 30,
+    name: 'Entrepreneur Plan',
+    price: '$549',
+    hours: 12,
     features: [
-      'Dedicated Executive Assistant Support',
-      'Email & Inbox Management',
-      'Calendar & Schedule Coordination',
-      'Travel & Logistics Planning',
-      'Standard 24h Response Time',
-      'Texas-Based Project Manager'
+      'Dedicated Strategic Assistant',
+      '12 Hours of Monthly Support',
+      'U.S-Based Elite Professional',
+      'Inbox & Calendar Management',
+      'Standard 24h Response Window',
+      'Password Security Protocol',
+      'No Long-Term Commitment'
     ]
   },
   {
-    name: 'Galaxy Growth',
-    price: '$2,000',
-    hours: 60,
+    name: 'Small Business Plan',
+    price: '$1,099',
+    hours: 24,
     features: [
-      'Dedicated Executive Assistant Support',
-      'Priority Email & Inbox Management',
-      'Strategic Calendar Coordination',
-      'Complex Travel & Logistics',
-      'Standard 12h Response Time',
-      'Quarterly Performance Reviews',
+      'Dedicated Strategic Assistant',
+      '24 Hours of Monthly Support',
+      'Priority Response Time (12h)',
+      'Advanced Travel & Logistics',
+      'Complex Project Management',
+      'Quarterly Performance Audits',
       'Dedicated Success Manager'
     ],
     recommended: true
   },
   {
-    name: 'Cosmic EA',
-    price: '$5,500',
-    hours: 160,
+    name: 'Team Plan',
+    price: '$1,299',
+    hours: 36,
     features: [
-      'Full-Time Dedicated Executive Assistant Support',
-      'Comprehensive Strategic Operations',
-      'Unlimited Executive Tasks & Workflow Design',
-      'Instant Communication Access',
-      'Lifestyle & Concierge Support',
-      'VIP Handling for All Requests',
-      '24/7 Crisis & Schedule Management'
+      'Dedicated Strategic Assistant',
+      '36 Hours of Monthly Support',
+      'High-Priority Status (Instant)',
+      'Multi-User Access (Up to 3)',
+      'Advanced Operations Support',
+      'Technical Workflow Optimization',
+      'VIP Concierge Services'
+    ]
+  },
+  {
+    name: 'Enterprise Plan',
+    price: '$1,799',
+    hours: 50,
+    features: [
+      'Top-Tier Dedicated EA Partner',
+      '50 Hours of Monthly Support',
+      'Unlimited Team Access',
+      'Strategic Business Integration',
+      '24/7 Crisis Response Access',
+      'Full Document Preparation',
+      'White-Glove Success Concierge'
     ]
   }
 ];
@@ -88,116 +103,172 @@ export const BOOKKEEPING_PLANS = [
   {
     name: 'Essential Ledger',
     price: '$300',
-    description: 'Perfect for small businesses and solopreneurs.',
-    features: ['Monthly Bank Reconciliation', 'Expense Categorization', 'Basic Profit & Loss Statements']
+    description: 'Perfect for small businesses and solopreneurs seeking clarity.',
+    features: [
+      'Monthly Bank Reconciliation',
+      'Expense Categorization',
+      'Profit & Loss Statements',
+      'Balance Sheet Preparation',
+      'Email Support Access',
+      'Cloud Software Integration'
+    ]
   },
   {
     name: 'Precision Growth',
     price: '$750',
-    description: 'For growing teams with higher transaction volume.',
-    features: ['Accounts Payable & Receivable', 'Vendor Management', 'Quarterly Financial Reviews', 'Sales Tax Filing']
+    description: 'For scaling teams with higher transaction volume.',
+    features: [
+      'Accounts Payable & Receivable',
+      'Vendor Management',
+      'Quarterly Financial Reviews',
+      'Sales Tax Filing',
+      'Priority Email Support',
+      'Cash Flow Forecasting',
+      'U.S-Based Bookkeeper'
+    ],
+    recommended: true
   },
   {
     name: 'Full-Cycle Finance',
     price: '$1,500',
     description: 'Complete back-office financial management.',
-    features: ['Unlimited Reconciliations', 'Payroll Management', 'Strategic Cash Flow Forecasting', 'Tax Prep Collaboration']
+    features: [
+      'Unlimited Reconciliations',
+      'Full Payroll Management',
+      'Strategic Cash Flow Analysis',
+      'Tax Prep Collaboration',
+      'Monthly Advisory Call',
+      'Budget vs. Actual Reporting',
+      'Dedicated Finance Lead'
+    ]
   }
 ];
 
-export const BOOKKEEPING_CHECKLIST: string[] = [
-  'Accounts Payable & Receivable',
-  'Monthly Bank Reconciliations',
-  'Expense Categorization',
-  'Financial Statement Preparation',
-  'Payroll Processing & Management',
-  'Sales Tax Filing & Compliance',
-  'Vendor Management',
-  'Strategic Cash Flow Analysis'
+export const PERKS = [
+  {
+    title: "100% U.S-Based",
+    desc: "We do not outsource. Every specialist is a vetted, U.S-based professional operating from our hub for maximum cultural and strategic alignment.",
+    icon: "fa-map-location-dot"
+  },
+  {
+    title: "The 0.1% Standard",
+    desc: "Our rigorous vetting process ensures we only hire the absolute top-tier of administrative and financial talent globally.",
+    icon: "fa-trophy"
+  },
+  {
+    title: "BSSP Security",
+    desc: "Black Star Security Protocol ensures enterprise-grade encryption for all passwords, financial data, and sensitive communications.",
+    icon: "fa-user-lock"
+  },
+  {
+    title: "Proactive Continuity",
+    desc: "Never experience operational drag. We maintain internal 'shadow' specialists to ensure seamless coverage during vacations or emergencies.",
+    icon: "fa-infinity"
+  },
+  {
+    title: "Mission-Ready Tech",
+    desc: "We integrate natively into your tech stack. Slack, Notion, QBO, or HubSpot—we are ready on day one.",
+    icon: "fa-bolt-lightning"
+  },
+  {
+    title: "Strategic Pairing",
+    desc: "We don't just assign names. We use behavioral and skill-set mapping to pair you with an assistant who thinks like you do.",
+    icon: "fa-people-arrows"
+  }
 ];
 
 export const FAQS: FAQItem[] = [
   {
-    question: "How do I get started with Blackstar VA?",
-    answer: "Simply schedule a discovery call through our site. We'll assess your needs and match you with the perfect elite assistant within 48 hours."
+    question: "Why should I pick BLACK STAR VA?",
+    answer: "Our specialists are 100% based in the United States. We do not outsource overseas. We believe that mission-critical support requires deep cultural alignment and the highest standards of reliability."
   },
   {
-    question: "How do you handle password and data security?",
-    answer: "We use enterprise-grade tools like LastPass or Dashlane to manage access without ever seeing your raw passwords. All our VAs sign strict NDAs and undergo background checks before being placed with clients."
-  },
-  {
-    question: "What happens if my VA is sick or on vacation?",
-    answer: "One of the biggest perks of an agency is continuity. If your primary assistant is away, a trained backup assistant steps in to ensure your business doesn't skip a beat. Your dedicated Project Manager handles the handoff seamlessly."
-  },
-  {
-    question: "Do I have to sign a long-term contract?",
-    answer: "No. We operate on a month-to-month retainer basis. We believe our value should earn your business every month, not a piece of paper. You can upgrade, downgrade, or cancel with 30 days' notice."
-  },
-  {
-    question: "What communication tools do you use?",
-    answer: "We are flexible! Most of our clients prefer Slack, Notion, or Asana. We also integrate with Microsoft Teams, Trello, and WhatsApp depending on your preferred workflow."
-  },
-  {
-    question: "Can I interview my assistant before we start?",
-    answer: "Absolutely. After our discovery call, we narrow down the best candidates from our internal elite pool. You'll have a chance to meet your top match to ensure the 'vibe' and technical fit are perfect before onboarding begins."
-  },
-  {
-    question: "What are your VAs' working hours?",
-    answer: "While we are Texas-based, we support various time zones. Standard hours are 9 AM – 5 PM local time, but we can arrange for early morning or evening coverage if your business requires international support."
+    question: "What if I’m too overwhelmed to train someone?",
+    answer: "That happens. Fortunately, we can pair you with a Black Star Strategic Assistant who is already trained in the skills you need. Of course, you will have to show them the ropes of your specific business, but the good news is that they’ve already done similar work for other clients and they have a ton of experience in serving clients remotely."
   },
   {
     question: "Is there a trial period?",
-    answer: "We offer a 14-day 'Vibe Check' period. If within the first two weeks you feel the match isn't perfect, we will swap your assistant immediately or refund your remaining hours, no questions asked."
+    answer: "No there isn't a trial period but all first timers you do receive 4 hours additional on the first month or you can span it out to 2 months max."
+  },
+  {
+    question: "Where are Black Star specialists located?",
+    answer: "Our specialists are 100% based in the United States. We do not outsource overseas. We believe that mission-critical support requires deep cultural alignment and the highest standards of reliability."
+  },
+  {
+    question: "What exactly can my Strategic Assistant do?",
+    answer: "Anything that doesn't require your physical presence. This includes complex calendar management, travel logistics, high-level research, inbox detoxification, social media management, and CRM optimization. If it's digital and operational, we own it."
+  },
+  {
+    question: "Do my unused hours roll over to the next month?",
+    answer: "To maintain peak operational capacity and guarantee your specialist's dedicated focus, hours do not roll over. We encourage full utilization of your partner to ensure you are maximizing your strategic leverage every 30 days."
+  },
+  {
+    question: "How do you ensure the security of my sensitive data?",
+    answer: "We utilize the Black Star Security Protocol (BSSP). This involves enterprise-grade encrypted vaults (LastPass/Dashlane) where your credentials remain masked. All specialists are bound by rigorous NDAs and internal security audits."
+  },
+  {
+    question: "How long does the synchronization process take?",
+    answer: "Once you complete the intake protocol and initialize your plan, we typically have your Strategic Assistant paired and ready for a kick-off call within 48 to 72 business hours."
+  },
+  {
+    question: "Can I share my plan with other members of my team?",
+    answer: "Yes. Our 'Team' and 'Enterprise' tiers are specifically designed for multi-user access, allowing your Strategic Assistant to integrate into your entire executive workflow."
+  },
+  {
+    question: "What happens if my assistant takes time off?",
+    answer: "We maintain 'Proactive Continuity.' A fully briefed backup specialist from our internal pool is placed on standby to step in seamlessly, ensuring your business momentum never breaks."
+  },
+  {
+    question: "Can my assistant handle specialized technical tasks?",
+    answer: "Our assistants are experts in modern business tools (Slack, Notion, QBO, etc.). For advanced coding or complex technical architecture, we recommend our 'Technical Support' add-on for specialized engineering oversight."
+  },
+  {
+    question: "What are your standard operating hours?",
+    answer: "We operate during standard business hours in your specific U.S timezone (9 AM – 6 PM). For Enterprise clients, we offer extended support windows for mission-critical or global operations."
   }
 ];
 
 export const TESTIMONIALS = [
   {
-    text: "Switching to Black Star Va was the single best decision for my business. Their bookkeeping is flawless, and my VA feels like a true extension of my brain.",
-    name: "J. Vance",
-    role: "Founder",
-    img: "https://picsum.photos/id/65/100/100"
+    text: "The Small Business plan allowed me to reclaim 20 hours of my week. The ROI was immediate.",
+    name: "A. Sterling",
+    role: "Series B Founder",
+    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=150"
   },
   {
-    text: "I was skeptical about the remote model for high-level EA work, but Black Star proved me wrong. Their anticipatory logic is on another level.",
-    name: "S. Thompson",
+    text: "The Enterprise plan is like having a Chief of Staff at a fraction of the cost.",
+    name: "J. Miller",
     role: "CEO",
-    img: "https://picsum.photos/id/64/100/100"
+    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
   },
   {
-    text: "Managing a global team across 6 timezones was killing me. Black Star stepped in and organized my life in less than two weeks.",
-    name: "M. Rodriguez",
+    text: "Their U.S work ethic and precision bookkeeping are simply unmatched in the remote space.",
+    name: "E. Rodriguez",
+    role: "Managing Director",
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    text: "Delegating my inbox and travel to Black Star was the best operational decision I made this year.",
+    name: "M. Thompson",
+    role: "Principal Investor",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    text: "The financial clarity I now have thanks to their precision bookkeeping has changed how I scale.",
+    name: "L. Chen",
+    role: "E-commerce Founder",
+    img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    text: "Discrete, professional, and always two steps ahead. They've become an essential part of my life.",
+    name: "D. Harrison",
+    role: "VC Partner",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    text: "Finding a U.S-based team that actually understands the urgency of high-growth tech is rare.",
+    name: "S. Brooks",
     role: "COO",
-    img: "https://picsum.photos/id/101/100/100"
-  },
-  {
-    text: "Their Texas work ethic is no joke. I've worked with agencies in NYC and London, but the attention to detail here is unmatched.",
-    name: "R. Chen",
-    role: "Director of Ops",
-    img: "https://picsum.photos/id/91/100/100"
-  },
-  {
-    text: "Finally, a bookkeeping service that doesn't require me to explain everything twice. They just get it.",
-    name: "L. Harrison",
-    role: "Principal",
-    img: "https://picsum.photos/id/45/100/100"
-  },
-  {
-    text: "My executive assistant at Black Star has reclaimed at least 15 hours of my week. I'm actually home for dinner now.",
-    name: "K. Patel",
-    role: "Medical Director",
-    img: "https://picsum.photos/id/55/100/100"
-  },
-  {
-    text: "Professional, discreet, and incredibly efficient. They handle my personal and business life with the utmost care.",
-    name: "D. Smith",
-    role: "Angel Investor",
-    img: "https://picsum.photos/id/32/100/100"
-  },
-  {
-    text: "The integration with our Slack and Notion was seamless. It felt like we hired a local team member overnight.",
-    name: "A. Garcia",
-    role: "Head of Product",
-    img: "https://picsum.photos/id/22/100/100"
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
   }
 ];

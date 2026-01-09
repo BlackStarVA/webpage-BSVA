@@ -57,15 +57,8 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Reordered: Services & Pricing now comes before About
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services & Pricing', path: '/pricing' },
-    { name: 'About', path: '/about' },
-  ];
-
-  // Reordered: Client Portal now comes before FAQ
   const secondaryLinks = [
+    { name: 'About', path: '/about', icon: 'fa-info-circle' },
     { name: 'Client Portal', path: '/portal', icon: 'fa-user-shield' },
     { name: 'FAQ', path: '/faq', icon: 'fa-question-circle' },
     { name: 'Careers', path: '/careers', icon: 'fa-briefcase' },
@@ -76,7 +69,6 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
     setDropdownOpen(false);
   }, [location]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -88,84 +80,91 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 h-24 flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/">
               <DynamicLogo />
             </Link>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-sm font-bold tracking-wide transition-all ${
-                    location.pathname === link.path 
-                      ? 'text-[#ab7e31]' 
-                      : 'text-gray-400 hover:text-white'
+          <div className="hidden lg:block">
+            {/* Removed the border box around the links as per user request */}
+            <div className="flex items-center space-x-10">
+              <Link
+                to="/"
+                className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${
+                  location.pathname === '/' ? 'text-[#ab7e31]' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                Home
+              </Link>
+
+              <Link
+                to="/services"
+                className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${
+                  location.pathname === '/services' || location.pathname === '/bookkeeping' ? 'text-[#ab7e31]' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                Services
+              </Link>
+
+              <Link
+                to="/pricing"
+                className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all ${
+                  location.pathname === '/pricing' ? 'text-[#ab7e31]' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                Pricing
+              </Link>
+
+              <button
+                onClick={onBookNow}
+                className="bg-[#ab7e31] hover:bg-white text-black px-8 py-3 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_15px_rgba(171,126,49,0.3)]"
+              >
+                DISCOVERY CALL
+              </button>
+
+              <div className="relative" ref={dropdownRef}>
+                <button 
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  className={`flex items-center p-2 rounded-lg transition-all ${
+                    dropdownOpen ? 'text-[#ab7e31] bg-white/5' : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  {link.name}
-                </Link>
-              ))}
-
-              <div className="flex items-center space-x-6 ml-4">
-                <button
-                  onClick={onBookNow}
-                  className="bg-[#ab7e31] hover:bg-white text-black px-8 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(171,126,49,0.3)] hover:shadow-[0_0_30px_rgba(171,126,49,0.5)] hover:scale-105 active:scale-95 flex items-center"
-                >
-                  Book Discovery Call
-                  <i className="fas fa-calendar-alt ml-2 text-[10px]"></i>
+                  <div className="flex flex-col space-y-1 w-5">
+                    <div className={`h-0.5 bg-current transition-all duration-300 w-5`}></div>
+                    <div className={`h-0.5 bg-current transition-all duration-300 w-5`}></div>
+                    <div className={`h-0.5 bg-current transition-all duration-300 w-5`}></div>
+                  </div>
                 </button>
 
-                {/* Resources Dropdown - 3 lines icon */}
-                <div className="relative" ref={dropdownRef}>
-                  <button 
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    onMouseEnter={() => setDropdownOpen(true)}
-                    className={`flex items-center p-2 rounded-xl transition-all ${
-                      dropdownOpen ? 'text-[#ab7e31] bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
-                    }`}
-                    aria-label="Open resources menu"
-                  >
-                    <div className="flex flex-col space-y-1 w-5">
-                      <div className={`h-0.5 bg-current transition-all duration-300 ${dropdownOpen ? 'w-5' : 'w-5'}`}></div>
-                      <div className={`h-0.5 bg-current transition-all duration-300 ${dropdownOpen ? 'w-3' : 'w-5'}`}></div>
-                      <div className={`h-0.5 bg-current transition-all duration-300 ${dropdownOpen ? 'w-5' : 'w-5'}`}></div>
-                    </div>
-                  </button>
-
-                  <div 
-                    className={`absolute right-0 mt-4 w-56 glass border border-white/10 rounded-2xl p-2 shadow-2xl transition-all duration-300 origin-top-right ${
-                      dropdownOpen 
-                        ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
-                        : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
-                    }`}
-                    onMouseLeave={() => setDropdownOpen(false)}
-                  >
-                    <div className="absolute -top-2 right-4 w-4 h-4 glass border-l border-t border-white/10 rotate-45 -z-10"></div>
-                    {secondaryLinks.map((link, idx) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-all text-gray-400 hover:text-white group"
-                        style={{ transitionDelay: `${idx * 50}ms` }}
-                      >
-                        <i className={`fas ${link.icon} text-xs text-gray-600 group-hover:text-[#ab7e31] transition-transform group-hover:scale-110`}></i>
-                        <span className="text-xs font-bold uppercase tracking-widest">{link.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+                <div 
+                  className={`absolute top-full right-0 mt-4 w-56 glass border border-white/10 rounded-2xl p-2 shadow-2xl transition-all duration-300 origin-top-right z-[60] ${
+                    dropdownOpen 
+                      ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
+                      : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
+                  }`}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  {secondaryLinks.map((link, idx) => (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-all text-gray-400 hover:text-white group"
+                    >
+                      <i className={`fas ${link.icon} text-xs text-gray-600 group-hover:text-[#ab7e31]`}></i>
+                      <span className="text-[10px] font-black uppercase tracking-widest">{link.name}</span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center">
              <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white focus:outline-none p-2"
@@ -177,38 +176,21 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden glass border-t border-white/10 animate-fade-in-down">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="block px-3 py-4 rounded-md text-base font-bold text-gray-300 hover:text-white hover:bg-white/5 transition-all border-b border-white/5"
-              >
-                {link.name}
-              </Link>
-            ))}
+        <div className="lg:hidden absolute top-full left-0 right-0 glass border-t border-white/10 animate-fade-in-down">
+          <div className="px-4 py-8 space-y-4">
+            <Link to="/" className="block px-3 py-3 rounded-xl text-lg font-black text-gray-300 hover:text-white uppercase tracking-widest transition-all">Home</Link>
+            <Link to="/services" className="block px-3 py-3 rounded-xl text-lg font-black text-gray-300 hover:text-white uppercase tracking-widest transition-all">Services</Link>
+            <Link to="/pricing" className="block px-3 py-3 rounded-xl text-lg font-black text-gray-300 hover:text-white uppercase tracking-widest transition-all">Pricing</Link>
             
-            <div className="bg-white/5 my-2 py-2 rounded-xl">
-               <span className="px-4 text-[10px] font-black text-gray-600 uppercase tracking-widest block mb-2">Resources</span>
-               {secondaryLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="flex items-center space-x-4 px-4 py-3 text-sm font-bold text-gray-400 hover:text-white"
-                >
-                  <i className={`fas ${link.icon} w-5 text-[#ab7e31]`}></i>
-                  <span>{link.name}</span>
-                </Link>
+            <div className="px-3 py-4 space-y-2 border-t border-white/10 mt-4">
+              {secondaryLinks.map(link => (
+                <Link key={link.path} to={link.path} className="block px-3 py-3 text-sm font-bold text-gray-500 hover:text-white uppercase tracking-widest">{link.name}</Link>
               ))}
             </div>
 
-            <div className="p-3">
-              <button
-                onClick={onBookNow}
-                className="block w-full text-center px-3 py-4 rounded-xl text-base font-black text-black bg-[#ab7e31] uppercase tracking-widest"
-              >
-                Book Discovery Call
+            <div className="pt-6">
+              <button onClick={onBookNow} className="w-full py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-widest shadow-2xl">
+                DISCOVERY CALL
               </button>
             </div>
           </div>

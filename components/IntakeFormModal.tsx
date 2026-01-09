@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface IntakeFormModalProps {
   isOpen: boolean;
@@ -10,7 +11,7 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [showCalendly, setShowCalendly] = useState(false);
+  const navigate = useNavigate();
 
   // Reset form when opened/closed
   useEffect(() => {
@@ -18,7 +19,6 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
       setTimeout(() => {
         setStep(1);
         setIsSuccess(false);
-        setShowCalendly(false);
       }, 300);
     }
   }, [isOpen]);
@@ -35,10 +35,11 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      // Automatically show the embedded calendar after a short success message delay
+      // Automatically redirect to the payment page
       setTimeout(() => {
-        setShowCalendly(true);
-      }, 2000);
+        onClose();
+        navigate('/pay');
+      }, 2500);
     }, 2000);
   };
 
@@ -46,9 +47,9 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
 
   return (
     <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-xl animate-fade-in">
-      <div className={`glass w-full rounded-[3rem] border-white/10 shadow-2xl overflow-hidden flex flex-col transition-all duration-700 ease-in-out ${showCalendly ? 'max-w-4xl h-[90vh]' : 'max-w-2xl max-h-[90vh]'}`}>
+      <div className={`glass w-full rounded-[3rem] border-white/10 shadow-2xl overflow-hidden flex flex-col transition-all duration-700 ease-in-out max-w-2xl max-h-[90vh]`}>
         {/* Header */}
-        {!showCalendly && (
+        {!isSuccess && (
           <div className="p-8 border-b border-white/5 flex justify-between items-center bg-black/20">
             <div>
               <h2 className="text-2xl font-black logo-font text-white uppercase tracking-tighter">
@@ -73,41 +74,15 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
         )}
 
         {/* Content */}
-        <div className={`flex-grow overflow-hidden flex flex-col ${!showCalendly ? 'p-8 md:p-12' : ''}`}>
-          {showCalendly ? (
-            <div className="flex-grow flex flex-col relative animate-fade-in h-full">
-              <div className="p-6 border-b border-white/5 flex justify-between items-center bg-black/40">
-                <h3 className="text-sm font-black text-white uppercase tracking-widest">Secure Your Strategy Session</h3>
-                <button 
-                  onClick={onClose}
-                  className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#ab7e31] transition-all"
-                >
-                  <i className="fas fa-times"></i>
-                </button>
-              </div>
-              <div className="flex-grow bg-white/5 relative">
-                <iframe
-                  src="https://calendly.com/hasanna-blackstarva/30min?hide_landing_page_details=1&hide_gdpr_banner=1"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  className="h-full w-full"
-                  title="Schedule Discovery Call"
-                ></iframe>
-                {/* Loader overlay for the iframe */}
-                <div className="absolute inset-0 z-[-1] flex items-center justify-center">
-                  <div className="w-8 h-8 border-2 border-[#ab7e31] border-t-transparent rounded-full animate-spin"></div>
-                </div>
-              </div>
-            </div>
-          ) : isSuccess ? (
+        <div className={`flex-grow overflow-hidden flex flex-col p-8 md:p-12`}>
+          {isSuccess ? (
             <div className="py-12 text-center animate-cartoon-pop flex-grow flex flex-col items-center justify-center">
               <div className="w-24 h-24 bg-[#ab7e31]/20 rounded-full flex items-center justify-center mb-8 border border-[#ab7e31]/30">
-                <i className="fas fa-calendar-check text-[#ab7e31] text-4xl"></i>
+                <i className="fas fa-fingerprint text-[#ab7e31] text-4xl"></i>
               </div>
-              <h3 className="text-4xl font-black logo-font text-white mb-4 uppercase tracking-widest">Protocol Initiated</h3>
+              <h3 className="text-4xl font-black logo-font text-white mb-4 uppercase tracking-widest">Protocol Verified</h3>
               <p className="text-gray-400 font-light leading-relaxed max-w-sm mx-auto mb-10 text-lg">
-                Your profile has been synchronized. One moment while we prepare your selection calendar...
+                Your profile has been synchronized. One moment while we transfer you to the secure payment portal...
               </p>
               <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden mx-auto">
                 <div className="h-full bg-[#ab7e31] animate-[progress_2s_ease-in-out_infinite]"></div>
@@ -265,7 +240,7 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
                     {isSubmitting ? (
                       <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                     ) : (
-                      <>Book Discovery Call <i className="fas fa-calendar-alt ml-3"></i></>
+                      <>Continue to Payment <i className="fas fa-credit-card ml-3"></i></>
                     )}
                   </button>
                 )}
