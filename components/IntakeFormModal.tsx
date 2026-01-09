@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface IntakeFormModalProps {
@@ -88,6 +87,9 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
       console.log('[DISPATCH SUCCESS]: Intake profile synchronized with support@blackstarva.com');
       setIsSubmitting(false);
       setIsSuccess(true);
+      
+      // Auto-open scheduling link as requested
+      window.open('https://calendly.com/blackstarva/30min', '_blank');
     } catch (error) {
       console.error('[DISPATCH ERROR]: Operational latency detected', error);
       setIsSubmitting(false);
@@ -105,20 +107,30 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
         {isSuccess ? (
           <div className="flex-grow flex flex-col items-center justify-center p-12 text-center animate-cartoon-pop">
             <div className="w-24 h-24 bg-[#ab7e31]/20 rounded-full flex items-center justify-center mb-8 border border-[#ab7e31]/30 shadow-[0_0_50px_rgba(171,126,49,0.3)]">
-              <i className="fas fa-paper-plane text-3xl text-[#ab7e31]"></i>
+              <i className="fas fa-calendar-check text-3xl text-[#ab7e31]"></i>
             </div>
             <h2 className="text-4xl font-black logo-font text-white mb-6 uppercase tracking-tighter text-center">
               Intake questions <br /><span className="text-[#ab7e31] italic font-light lowercase">submitted!</span>
             </h2>
             <p className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
-              Your comprehensive intake profile has been dispatched to <span className="text-white font-bold">support@blackstarva.com</span>. Our command team will review your data and initiate contact within 4 business hours.
+              Your comprehensive intake profile has been dispatched. Next, please schedule your 30-minute discovery session via the link below.
             </p>
-            <button 
-              onClick={onClose}
-              className="px-12 py-4 bg-white text-black font-black rounded-xl text-[10px] uppercase tracking-[0.3em] hover:bg-[#ab7e31] transition-all shadow-xl"
-            >
-              Close message
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="https://calendly.com/blackstarva/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-12 py-4 bg-[#ab7e31] text-black font-black rounded-xl text-[10px] uppercase tracking-[0.3em] hover:bg-white transition-all shadow-xl inline-flex items-center justify-center"
+              >
+                SCHEDULE DISCOVERY CALL <i className="fas fa-calendar-alt ml-3"></i>
+              </a>
+              <button 
+                onClick={onClose}
+                className="px-12 py-4 bg-white/5 text-white border border-white/10 font-black rounded-xl text-[10px] uppercase tracking-[0.3em] hover:bg-white/10 transition-all shadow-xl"
+              >
+                Close message
+              </button>
+            </div>
           </div>
         ) : (
           <>

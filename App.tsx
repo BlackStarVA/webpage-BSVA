@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -7,6 +6,7 @@ import About from './pages/About';
 import Pricing from './pages/Pricing';
 import FAQ from './pages/FAQ';
 import ClientPortal from './pages/ClientPortal';
+import AssistantPortal from './pages/AssistantPortal';
 import Careers from './pages/Careers';
 import Payment from './pages/Payment';
 import Contact from './pages/Contact';
@@ -36,6 +36,7 @@ const App: React.FC = () => {
             <Route path="/pricing" element={<Pricing onBookNow={openModal} />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/portal" element={<ClientPortal />} />
+            <Route path="/assistant" element={<AssistantPortal />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/pay" element={<Payment />} />
             <Route path="/contact" element={<Contact />} />

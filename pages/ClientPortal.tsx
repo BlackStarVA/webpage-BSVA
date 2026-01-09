@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 
 interface Task {
@@ -15,10 +14,6 @@ type SortField = 'priority' | 'dueDate' | 'createdAt';
 
 const ClientPortal: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
-  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
   const [completingId, setCompletingId] = useState<number | null>(null);
   const [sortField, setSortField] = useState<SortField>('createdAt');
   
@@ -68,17 +63,6 @@ const ClientPortal: React.FC = () => {
       return 0;
     });
   }, [tasks, sortField]);
-
-  const handleFeedbackClick = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowConfirmDialog(true);
-  };
-
-  const confirmFeedbackSubmit = () => {
-    setShowConfirmDialog(false);
-    setFeedbackSubmitted(true);
-    setTimeout(() => setFeedbackSubmitted(false), 5000);
-  };
 
   const handleAddTask = (e: React.FormEvent) => {
     e.preventDefault();
@@ -152,34 +136,6 @@ const ClientPortal: React.FC = () => {
 
   return (
     <div className="py-12 animate-fade-in pb-32 bg-black min-h-screen">
-      {showConfirmDialog && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] max-w-md w-full border border-[#ab7e31]/30 shadow-2xl text-center">
-            <div className="w-16 h-16 bg-[#ab7e31]/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#ab7e31]/30">
-              <i className="fas fa-question text-[#ab7e31] text-2xl"></i>
-            </div>
-            <h3 className="text-2xl font-black logo-font text-white mb-4 uppercase tracking-widest">Confirm Submission</h3>
-            <p className="text-gray-400 mb-10 font-light leading-relaxed">
-              Are you sure you want to submit this feedback? Your evaluation helps us maintain the Black Star standard of excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={confirmFeedbackSubmit}
-                className="flex-grow py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-widest hover:bg-white transition-all shadow-lg"
-              >
-                Yes, Submit
-              </button>
-              <button 
-                onClick={() => setShowConfirmDialog(false)}
-                className="flex-grow py-4 glass text-white font-black rounded-xl text-xs uppercase tracking-widest border border-white/10 hover:bg-white/5 transition-all"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
           <div>
@@ -310,80 +266,15 @@ const ClientPortal: React.FC = () => {
                   <p className="text-2xl text-white font-black logo-font leading-tight">Product Sprint <br />Review</p>
                   <p className="text-[#ab7e31] text-xs mt-2 font-bold">Today at 4:30 PM (CST)</p>
                 </div>
-                <button className="w-full mt-6 py-3 bg-white text-black font-black rounded-xl text-xs uppercase tracking-widest hover:bg-[#ab7e31] transition-colors">Join Zoom</button>
+                <a 
+                  href="https://calendly.com/blackstarva/40-minute-call" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full mt-6 py-3 bg-white text-black font-black rounded-xl text-xs uppercase tracking-widest hover:bg-[#ab7e31] transition-colors flex items-center justify-center"
+                >
+                  Join Zoom
+                </a>
               </div>
-            </div>
-
-            <div className="glass p-10 rounded-[2.5rem] border border-white/5 relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-48 h-48 bg-[#ab7e31]/5 rounded-full blur-3xl -mr-24 -mt-24"></div>
-               <div className="relative z-10">
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black logo-font text-white uppercase tracking-widest flex items-center">
-                      <i className="fas fa-star-half-stroke text-[#ab7e31] mr-3"></i> Stellar Feedback
-                    </h3>
-                    <p className="text-gray-500 text-sm mt-1 font-light">How are we performing? Help us refine your elite experience.</p>
-                  </div>
-
-                  {feedbackSubmitted ? (
-                    <div className="py-12 text-center animate-fade-in">
-                      <div className="w-16 h-16 bg-[#ab7e31]/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#ab7e31]/30">
-                        <i className="fas fa-check text-[#ab7e31] text-xl"></i>
-                      </div>
-                      <h4 className="text-white font-bold text-lg mb-2">Feedback Received</h4>
-                      <p className="text-gray-500 text-sm">Thank you for helping us maintain the Black Star standard.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleFeedbackClick} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Evaluation Subject</label>
-                          <select className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#ab7e31]/50 appearance-none font-bold">
-                            <option>General Service Quality</option>
-                            <option>Sarah Miller (Admin)</option>
-                            <option>Marcus Chen (Creative)</option>
-                            <option>Technical Support Team</option>
-                            <option>Bookkeeping Accuracy</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Stellar Rating</label>
-                          <div className="flex space-x-2">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                              <button
-                                key={star}
-                                type="button"
-                                className={`text-2xl transition-all ${
-                                  (hover || rating) >= star ? 'text-[#ab7e31]' : 'text-gray-800'
-                                }`}
-                                onClick={() => setRating(star)}
-                                onMouseEnter={() => setHover(star)}
-                                onMouseLeave={() => setHover(0)}
-                              >
-                                <i className="fas fa-star"></i>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Your Perspective</label>
-                        <textarea 
-                          rows={3}
-                          placeholder="What can we do to further elevate your partnership?"
-                          className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 text-sm text-white focus:outline-none focus:border-[#ab7e31]/50 placeholder:text-gray-700 font-light leading-relaxed"
-                        ></textarea>
-                      </div>
-
-                      <button 
-                        type="submit"
-                        className="px-10 py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl shadow-[#ab7e31]/10"
-                      >
-                        Submit Evaluation
-                      </button>
-                    </form>
-                  )}
-               </div>
             </div>
           </div>
 
