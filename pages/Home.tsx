@@ -283,29 +283,6 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
           </div>
         </div>
       </section>
-
-      {/* Final CTA */}
-      <section className="py-40 px-4">
-        <div className="reveal max-w-7xl mx-auto glass p-16 md:p-32 rounded-[5rem] text-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-[#ab7e31]/5 group-hover:bg-[#ab7e31]/10 transition-colors"></div>
-          <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000')] bg-cover mix-blend-overlay group-hover:scale-105 transition-transform duration-[10s]"></div>
-          
-          <div className="relative z-10">
-             <h2 className="text-5xl md:text-[6rem] logo-font font-black text-white mb-10 leading-none uppercase tracking-tighter">Your Next Move is <br /><span className="text-[#ab7e31] italic font-light drop-shadow-xl">Legendary</span></h2>
-             <p className="text-gray-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-               Strategic leverage for world-class founders. Are you ready to operate at your highest potential?
-             </p>
-             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                <button 
-                  onClick={onBookNow}
-                  className="px-14 py-6 bg-[#ab7e31] text-black font-black rounded-xl hover:bg-white transition-all text-sm tracking-[0.3em] uppercase hover:scale-105 shadow-2xl"
-                >
-                  BOOK DISCOVERY CALL
-                </button>
-             </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
