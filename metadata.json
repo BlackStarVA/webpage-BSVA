@@ -1,0 +1,8 @@
+{
+  "name": "Blackstar VA - webpage",
+  "description": "final page ",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
