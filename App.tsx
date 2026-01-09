@@ -10,6 +10,7 @@ import ClientPortal from './pages/ClientPortal';
 import Careers from './pages/Careers';
 import Payment from './pages/Payment';
 import Contact from './pages/Contact';
+import TermsOfService from './pages/TermsOfService';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import IntakeFormModal from './components/IntakeFormModal';
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/pay" element={<Payment />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<TermsOfService />} />
           </Routes>
         </main>
         <Footer />

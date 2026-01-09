@@ -49,6 +49,7 @@ const Footer: React.FC = () => {
               <li><Link to="/pricing" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Services & Pricing</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Our Story</Link></li>
               <li><Link to="/faq" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Help Center</Link></li>
+              <li><Link to="/terms" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Terms of Service</Link></li>
               <li><Link to="/careers" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Join the 0.1%</Link></li>
             </ul>
           </div>
