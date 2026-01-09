@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { PRICING_PLANS, SERVICES, BOOKKEEPING_PLANS, PERKS, FAQS } from '../constants';
 
@@ -84,7 +83,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
               : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
           }`}
         >
-          Buy Now <i className="fas fa-external-link-alt ml-3 opacity-60 text-[9px]"></i>
+          SELECT PLAN
         </a>
       );
     }
@@ -98,7 +97,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
             : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
         }`}
       >
-        Select Plan
+        SELECT PLAN
       </button>
     );
   };
@@ -313,7 +312,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
                     onClick={onBookNow}
                     className="w-full py-6 bg-[#ab7e31] text-black font-black rounded-2xl text-[10px] tracking-[0.2em] uppercase hover:bg-white transition-all shadow-2xl shadow-[#ab7e31]/20"
                   >
-                    Select Plan
+                    SELECT PLAN
                   </button>
                 </div>
               </div>

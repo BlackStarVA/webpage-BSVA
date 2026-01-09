@@ -1,4 +1,3 @@
-
 import { Service, PricingPlan, BookkeepingPlan, FAQItem } from './types';
 
 export const SERVICES: Service[] = [
@@ -53,7 +52,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Password Security Protocol',
       'No Long-Term Commitment'
     ],
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/dRm8wP79w0ngfOs83kco001'
   },
   {
     name: 'Small Business Plan',
@@ -69,7 +68,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Dedicated Success Manager'
     ],
     recommended: true,
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/4gMdR951o1rkcCg0ASco002'
   },
   {
     name: 'Team Plan',
@@ -84,7 +83,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Technical Workflow Optimization',
       'VIP Concierge Services'
     ],
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/5kQ6oH0L87PI31GfvMco003'
   },
   {
     name: 'Enterprise Plan',
@@ -99,7 +98,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Full Document Preparation',
       'White-Glove Success Concierge'
     ],
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/9B68wP1Pc5HA8m083kco004' 
   }
 ];
 
@@ -116,7 +115,7 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'Email Support Access',
       'Cloud Software Integration'
     ],
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/14AcN551o6LE9q42J0co005' 
   },
   {
     name: 'Precision Growth',
@@ -132,7 +131,7 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'U.S-Based Bookkeeper'
     ],
     recommended: true,
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/14AfZhalI7PIdGk6Zgco006' 
   },
   {
     name: 'Full-Cycle Finance',
@@ -147,7 +146,7 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'Budget vs. Actual Reporting',
       'Dedicated Finance Lead'
     ],
-    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
+    stripeLink: 'https://buy.stripe.com/4gM00jeBY3zsdGk1EWco007' 
   }
 ];
 
@@ -240,42 +239,6 @@ export const TESTIMONIALS = [
     text: "The Small Business plan allowed me to reclaim 20 hours of my week. The ROI was immediate.",
     name: "A. Sterling",
     role: "Series B Founder",
-    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "The Enterprise plan is like having a Chief of Staff at a fraction of the cost.",
-    name: "J. Miller",
-    role: "CEO",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "Their U.S work ethic and precision bookkeeping are simply unmatched in the remote space.",
-    name: "E. Rodriguez",
-    role: "Managing Director",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "Delegating my inbox and travel to Black Star was the best operational decision I made this year.",
-    name: "M. Thompson",
-    role: "Principal Investor",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "The financial clarity I now have thanks to their precision bookkeeping has changed how I scale.",
-    name: "L. Chen",
-    role: "E-commerce Founder",
-    img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "Discrete, professional, and always two steps ahead. They've become an essential part of my life.",
-    name: "D. Harrison",
-    role: "VC Partner",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
-  },
-  {
-    text: "Finding a U.S-based team that actually understands the urgency of high-growth tech is rare.",
-    name: "S. Brooks",
-    role: "COO",
-    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=100"
   }
 ];

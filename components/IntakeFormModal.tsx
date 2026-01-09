@@ -107,7 +107,7 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
             <div className="w-24 h-24 bg-[#ab7e31]/20 rounded-full flex items-center justify-center mb-8 border border-[#ab7e31]/30 shadow-[0_0_50px_rgba(171,126,49,0.3)]">
               <i className="fas fa-paper-plane text-3xl text-[#ab7e31]"></i>
             </div>
-            <h2 className="text-4xl font-black logo-font text-white mb-6 uppercase tracking-tighter">
+            <h2 className="text-4xl font-black logo-font text-white mb-6 uppercase tracking-tighter text-center">
               Intake questions <br /><span className="text-[#ab7e31] italic font-light lowercase">submitted!</span>
             </h2>
             <p className="text-gray-400 font-light leading-relaxed mb-10 max-w-md">
@@ -194,42 +194,44 @@ const IntakeFormModal: React.FC<IntakeFormModalProps> = ({ isOpen, onClose }) =>
                 {step === 3 && (
                   <div className="space-y-10 animate-fade-in">
                     <p className="text-[#ab7e31] text-[11px] font-black uppercase tracking-[0.4em] mb-4 italic">Section III: Support Parameters</p>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">7. Est. Weekly Strategic Support Hours</label>
-                      <div className="grid grid-cols-2 gap-4">
-                        {['5-10', '10-20', '20-40', 'Full Focus'].map(opt => (
-                          <button 
-                            key={opt} 
-                            type="button" 
-                            onClick={() => handleSelectOption('hours', opt)}
-                            className={`py-4 px-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
-                              formData.hours === opt 
-                                ? 'bg-[#ab7e31] text-black border-[#ab7e31]' 
-                                : 'bg-white/5 border-white/5 text-gray-400 hover:border-[#ab7e31]/40'
-                            }`}
-                          >
-                            {opt} HOURS
-                          </button>
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                       <div className="space-y-3">
+                        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">7. Est. Weekly Strategic Support Hours</label>
+                        <div className="grid grid-cols-2 gap-4">
+                          {['5-10', '10-20', '20-40', 'Full Focus'].map(opt => (
+                            <button 
+                              key={opt} 
+                              type="button" 
+                              onClick={() => handleSelectOption('hours', opt)}
+                              className={`py-4 px-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
+                                formData.hours === opt 
+                                  ? 'bg-[#ab7e31] text-black border-[#ab7e31]' 
+                                  : 'bg-white/5 border-white/5 text-gray-400 hover:border-[#ab7e31]/40'
+                              }`}
+                            >
+                              {opt} HOURS
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">8. Precision Bookkeeping Integration?</label>
-                      <div className="flex space-x-4">
-                        {['Yes', 'No'].map(opt => (
-                          <button 
-                            key={opt} 
-                            type="button" 
-                            onClick={() => handleSelectOption('bookkeeping', opt)}
-                            className={`flex-1 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
-                              formData.bookkeeping === opt 
-                                ? 'bg-[#ab7e31] text-black border-[#ab7e31]' 
-                                : 'bg-white/5 border-white/5 text-gray-400 hover:border-[#ab7e31]/40'
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
+                      <div className="space-y-3">
+                        <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">8. Precision Bookkeeping Integration?</label>
+                        <div className="flex space-x-4">
+                          {['Yes', 'No'].map(opt => (
+                            <button 
+                              key={opt} 
+                              type="button" 
+                              onClick={() => handleSelectOption('bookkeeping', opt)}
+                              className={`flex-1 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
+                                formData.bookkeeping === opt 
+                                  ? 'bg-[#ab7e31] text-black border-[#ab7e31]' 
+                                  : 'bg-white/5 border-white/5 text-gray-400 hover:border-[#ab7e31]/40'
+                              }`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                     <div className="space-y-3">

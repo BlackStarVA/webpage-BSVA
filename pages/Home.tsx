@@ -122,13 +122,25 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
       </section>
 
       {/* Trust bar */}
-      <div className="py-12 border-y border-white/5 bg-black/40 relative z-20 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-12 md:gap-24 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-700 overflow-hidden whitespace-nowrap group">
-           {['FOUNDER', 'CEO', 'PARTNER', 'INVESTOR', 'BUSINESS OWNER'].map((title, idx) => (
-             <div key={idx} className="text-2xl md:text-3xl font-black logo-font text-white tracking-[0.3em] flex items-center">
-               <i className="fas fa-star text-xs text-[#ab7e31] mr-4"></i> {title}
+      <div className="py-24 border-y border-white/5 bg-black/40 relative z-20 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="reveal text-center mb-16">
+            <h3 className="text-[#ab7e31] font-black text-[12px] uppercase tracking-[0.6em] mb-2 italic">Who do We support</h3>
+            <div className="w-16 h-0.5 bg-[#ab7e31]/20 mx-auto mt-6"></div>
+          </div>
+          
+          <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-8 items-center justify-items-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group">
+             {['FOUNDER', 'CEO', 'PARTNER'].map((title, idx) => (
+               <div key={idx} className="text-xl md:text-3xl font-black logo-font text-white tracking-[0.3em] flex items-center whitespace-nowrap">
+                 <i className="fas fa-star text-xs text-[#ab7e31] mr-4"></i> {title}
+               </div>
+             ))}
+             <div className="col-span-1 md:col-span-3 flex justify-center mt-6">
+                <div className="text-xl md:text-3xl font-black logo-font text-white tracking-[0.3em] flex items-center whitespace-nowrap">
+                  <i className="fas fa-star text-xs text-[#ab7e31] mr-4"></i> SMALL BUSINESS OWNER
+                </div>
              </div>
-           ))}
+          </div>
         </div>
       </div>
 

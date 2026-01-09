@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PRICING_PLANS, BOOKKEEPING_PLANS } from '../constants';
@@ -37,6 +36,40 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
       setActiveTab('ea');
     }
   }, [location]);
+
+  const renderPlanButton = (plan: any) => {
+    const isExternal = plan.stripeLink && plan.stripeLink !== '#' && plan.stripeLink !== '';
+
+    if (isExternal) {
+      return (
+        <a 
+          href={plan.stripeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all flex items-center justify-center ${
+            plan.recommended 
+              ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/10' 
+              : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
+          }`}
+        >
+          Select Plan
+        </a>
+      );
+    }
+
+    return (
+      <button 
+        onClick={onBookNow} 
+        className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
+          plan.recommended 
+            ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/10' 
+            : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
+        }`}
+      >
+        Select Plan
+      </button>
+    );
+  };
 
   return (
     <div className="bg-black min-h-screen">
@@ -123,7 +156,7 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
                         </li>
                       ))}
                     </ul>
-                    <button onClick={onBookNow} className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${plan.recommended ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/10' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}>Select Plan</button>
+                    {renderPlanButton(plan)}
                   </div>
                 ))}
               </div>
@@ -183,7 +216,7 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
                         </li>
                       ))}
                     </ul>
-                    <button onClick={onBookNow} className={`w-full py-6 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${plan.recommended ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/20' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}>Select Plan</button>
+                    {renderPlanButton(plan)}
                   </div>
                 ))}
               </div>
