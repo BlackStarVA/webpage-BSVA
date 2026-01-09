@@ -13,12 +13,16 @@ export interface PricingPlan {
   hours: number;
   features: string[];
   recommended?: boolean;
+  stripeLink?: string; // Add direct Stripe checkout link
 }
 
-export interface BookkeepingOption {
-  id: string;
-  label: string;
-  included: boolean;
+export interface BookkeepingPlan {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  recommended?: boolean;
+  stripeLink?: string; // Add direct Stripe checkout link
 }
 
 export interface FAQItem {

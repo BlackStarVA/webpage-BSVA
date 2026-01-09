@@ -134,14 +134,15 @@ const Chatbot: React.FC = () => {
         }
 
         // Send results back to model for final natural language response
+        // Fix: Corrected the content structure to ensure parts are mapped properly from ChatMessage history.
         const secondResponse = await ai.models.generateContent({
           model: 'gemini-3-flash-preview',
           contents: [
-            ...messages, 
-            userMessage, 
+            ...messages.map(msg => ({ role: msg.role, parts: [{ text: msg.text }] })), 
+            { role: userMessage.role, parts: [{ text: userMessage.text }] },
             { role: 'model', parts: response.functionCalls.map(f => ({ functionCall: f })) },
             { role: 'user', parts: toolResults.map(r => ({ functionResponse: r })) }
-          ] as any,
+          ],
           config: {
             systemInstruction: "You are Aria. Complete the booking conversation professionally based on the function results.",
           }
@@ -206,7 +207,7 @@ const Chatbot: React.FC = () => {
         </div>
       ) : (
         <button onClick={() => setIsOpen(true)} className="relative group transition-all hover:scale-110 active:scale-95">
-          <div className="absolute -top-14 right-0 bg-[#ab7e31] text-black text-[10px] font-black py-2 px-5 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all shadow-2xl uppercase tracking-widest border border-black/10">Schedule with Aria</div>
+          <div className="absolute -top-14 right-0 bg-[#ab7e31] text-black text-[10px] font-black py-2.5 px-5 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all shadow-2xl uppercase tracking-widest border border-black/10">Schedule with Aria</div>
           <div className="w-20 h-20 bg-black rounded-[2.2rem] flex items-center justify-center hover:-rotate-6 transition-all relative shadow-[0_25px_60px_rgba(171,126,49,0.5)] overflow-hidden border-2 border-[#ab7e31] group-hover:border-white">
              <div className="absolute inset-0 bg-gradient-to-br from-[#ab7e31]/40 via-transparent to-transparent"></div>
              <div className="w-full h-full flex items-center justify-center overflow-hidden bg-black/80"><AriaAvatar size="w-full h-full" /></div>

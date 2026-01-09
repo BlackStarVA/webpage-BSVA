@@ -69,6 +69,40 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
     };
   }, [monthlyCost]);
 
+  const renderPlanButton = (plan: any) => {
+    const isExternal = plan.stripeLink && plan.stripeLink !== '#' && plan.stripeLink !== '';
+    
+    if (isExternal) {
+      return (
+        <a 
+          href={plan.stripeLink} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all flex items-center justify-center ${
+            plan.recommended 
+              ? 'bg-[#ab7e31] text-black hover:bg-white shadow-xl shadow-[#ab7e31]/20' 
+              : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+          }`}
+        >
+          Buy Now <i className="fas fa-external-link-alt ml-3 opacity-60 text-[9px]"></i>
+        </a>
+      );
+    }
+
+    return (
+      <button 
+        onClick={onBookNow}
+        className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
+          plan.recommended 
+            ? 'bg-[#ab7e31] text-black hover:bg-white shadow-xl shadow-[#ab7e31]/20' 
+            : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+        }`}
+      >
+        Select Plan
+      </button>
+    );
+  };
+
   return (
     <div className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4">
@@ -127,16 +161,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
                   ))}
                 </ul>
 
-                <button 
-                  onClick={onBookNow}
-                  className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
-                    plan.recommended 
-                      ? 'bg-[#ab7e31] text-black hover:bg-white shadow-xl shadow-[#ab7e31]/20' 
-                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-                  }`}
-                >
-                  Select Plan
-                </button>
+                {renderPlanButton(plan)}
               </div>
             ))}
           </div>
@@ -186,16 +211,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
                   ))}
                 </ul>
 
-                <button 
-                  onClick={onBookNow}
-                  className={`w-full py-6 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
-                    plan.recommended 
-                      ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/20' 
-                      : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
-                  }`}
-                >
-                  Select Plan
-                </button>
+                {renderPlanButton(plan)}
               </div>
             ))}
           </div>

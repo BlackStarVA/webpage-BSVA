@@ -1,5 +1,5 @@
 
-import { Service, PricingPlan, FAQItem } from './types';
+import { Service, PricingPlan, BookkeepingPlan, FAQItem } from './types';
 
 export const SERVICES: Service[] = [
   {
@@ -52,7 +52,8 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Standard 24h Response Window',
       'Password Security Protocol',
       'No Long-Term Commitment'
-    ]
+    ],
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   },
   {
     name: 'Small Business Plan',
@@ -67,7 +68,8 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Quarterly Performance Audits',
       'Dedicated Success Manager'
     ],
-    recommended: true
+    recommended: true,
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   },
   {
     name: 'Team Plan',
@@ -81,7 +83,8 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Advanced Operations Support',
       'Technical Workflow Optimization',
       'VIP Concierge Services'
-    ]
+    ],
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   },
   {
     name: 'Enterprise Plan',
@@ -95,11 +98,12 @@ export const PRICING_PLANS: PricingPlan[] = [
       '24/7 Crisis Response Access',
       'Full Document Preparation',
       'White-Glove Success Concierge'
-    ]
+    ],
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   }
 ];
 
-export const BOOKKEEPING_PLANS = [
+export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
   {
     name: 'Essential Ledger',
     price: '$300',
@@ -111,7 +115,8 @@ export const BOOKKEEPING_PLANS = [
       'Balance Sheet Preparation',
       'Email Support Access',
       'Cloud Software Integration'
-    ]
+    ],
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   },
   {
     name: 'Precision Growth',
@@ -126,7 +131,8 @@ export const BOOKKEEPING_PLANS = [
       'Cash Flow Forecasting',
       'U.S-Based Bookkeeper'
     ],
-    recommended: true
+    recommended: true,
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   },
   {
     name: 'Full-Cycle Finance',
@@ -140,7 +146,8 @@ export const BOOKKEEPING_PLANS = [
       'Monthly Advisory Call',
       'Budget vs. Actual Reporting',
       'Dedicated Finance Lead'
-    ]
+    ],
+    stripeLink: '#' // PASTE YOUR STRIPE LINK HERE
   }
 ];
 

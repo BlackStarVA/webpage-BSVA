@@ -10,6 +10,28 @@ const Careers: React.FC = () => {
 
   const totalSteps = 3;
 
+  const assessmentQuestions = [
+    { id: 'q_1099', label: "1099 CONTRACT DISCLOSURE", question: "This position is strictly a 1099 Independent Contractor role. Have you worked as a 1099 contractor before? Please describe your understanding of and experience with this business model.", required: true },
+    { id: 'q1', label: "EXECUTIVE INBOX MANAGEMENT", question: "Describe your specific methodology for managing a high-volume executive inbox with 200+ daily mission-critical emails.", required: true },
+    { id: 'q2', label: "PRIORITIZATION LOGIC", question: "How do you handle a situation where two 'urgent' requests arrive simultaneously from different stakeholders? Walk us through your decision-making process.", required: true },
+    { id: 'q3', label: "TRAVEL LOGISTICS", question: "What is your approach to orchestrating complex international travel with multi-city stops, visa requirements, and varying time zones?", required: true },
+    { id: 'q4', label: "MEETING ARCHITECTURE", question: "Explain your process for preparing comprehensive executive meeting briefs and ensuring follow-up action items are executed with precision.", required: true },
+    { id: 'q5', label: "DISCRETION & SECURITY", question: "How do you maintain absolute discretion and data security when handling sensitive board-level documents or personal financial data?", required: true },
+    { id: 'q6', label: "ANTICIPATORY LOGIC", question: "Give a concrete example of a time you identified and solved a significant operational bottleneck before your executive even noticed it existed.", required: true },
+    { id: 'q7', label: "TECH STACK MASTERY", question: "Which project management tools (Notion, Slack, ClickUp, HubSpot) are you most proficient in for maintaining team synchronization?", required: true },
+    { id: 'q8', label: "RECONCILIATION PROTOCOL", question: "For Bookkeepers: What is your step-by-step process for performing a comprehensive monthly bank reconciliation for a high-transaction business?", required: false },
+    { id: 'q9', label: "CHART OF ACCOUNTS", question: "How do you identify, investigate, and resolve significant discrepancies within a complex Chart of Accounts?", required: false },
+    { id: 'q10', label: "AP/AR MANAGEMENT", question: "Describe your experience managing full-cycle Accounts Payable and Accounts Receivable for a scaling firm. How do you handle collections?", required: false },
+    { id: 'q11', label: "FINANCIAL REPORTING", question: "Which financial statements (P&L, Balance Sheet, Cash Flow) do you specialize in generating and analyzing for strategic growth?", required: false },
+    { id: 'q12', label: "TAX COMPLIANCE", question: "Explain your method for ensuring all expense categorizations are fully tax-compliant and ready for annual CPA handoff.", required: false },
+    { id: 'q13', label: "VENDOR RELATIONS", question: "How do you handle a situation where a client's key vendor is consistently providing inaccurate or late invoices?", required: false },
+    { id: 'q14', label: "TIME ZONE ALIGNMENT", question: "Are you fully comfortable operating during standard business hours in the CST (Texas) time zone? Describe your typical daily schedule.", required: true },
+    { id: 'q15', label: "REMOTE CADENCE", question: "Describe your ideal communication cadence with a client you support remotely. How do you ensure you stay 'in the loop' without being intrusive?", required: true },
+    { id: 'q16', label: "CONTINUOUS LEARNING", question: "How do you stay updated on new software tools, AI integrations, and digital workflow optimizations for executive support?", required: true },
+    { id: 'q17', label: "URGENCY RESPONSE", question: "What is your typical turnaround time for a high-priority administrative or financial request received during business hours?", required: true },
+    { id: 'q18', label: "BEYOND THE TASK", question: "At Black Star, we value partners, not task-takers. How do you demonstrate a 'Strategic Partner' mindset in your daily work?", required: true }
+  ];
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFileName(e.target.files[0].name);
@@ -26,8 +48,14 @@ const Careers: React.FC = () => {
     }, 1800);
   };
 
-  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, totalSteps));
-  const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
+  const nextStep = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+  };
+  const prevStep = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setCurrentStep(prev => Math.max(prev - 1, 1));
+  };
 
   if (submitted) {
     return (
@@ -157,21 +185,33 @@ const Careers: React.FC = () => {
                 )}
 
                 {currentStep === 2 && (
-                  <div className="space-y-8 animate-fade-in max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
-                    <div className="p-4 bg-[#ab7e31]/5 border border-[#ab7e31]/10 rounded-xl mb-6">
-                      <p className="text-[9px] text-[#ab7e31] font-bold uppercase tracking-widest text-center">Focus on brief, high-impact responses.</p>
+                  <div className="space-y-8 animate-fade-in max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar">
+                    <div className="p-6 bg-[#ab7e31]/5 border border-[#ab7e31]/20 rounded-2xl mb-8">
+                      <p className="text-[10px] text-[#ab7e31] font-black uppercase tracking-[0.3em] text-center mb-2">Operational Integrity Warning</p>
+                      <p className="text-gray-400 text-[11px] font-light text-center leading-relaxed">
+                        This position is a <span className="text-white font-bold underline decoration-[#ab7e31]">1099 Independent Contractor</span> role. Assessment scores are calculated based on brevity, clarity, and strategic depth.
+                      </p>
                     </div>
 
-                    <div className="space-y-10">
-                      {[1, 2, 3].map((num) => (
-                        <div key={num} className="space-y-3">
-                          <label className="block text-xs font-bold text-white tracking-wide">Question {num} Evaluation...</label>
-                          <textarea rows={3} className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#ab7e31]/30 outline-none font-light leading-relaxed"></textarea>
+                    <div className="space-y-12">
+                      {assessmentQuestions.map((q, idx) => (
+                        <div key={q.id} className="space-y-4">
+                          <div className="flex items-center space-x-3">
+                            <span className="text-[10px] font-black text-[#ab7e31] border border-[#ab7e31]/30 px-2 py-0.5 rounded">Q{idx + 1}</span>
+                            <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest">{q.label} {q.required && <span className="text-[#ab7e31]">*</span>}</label>
+                          </div>
+                          <p className="text-sm font-bold text-white tracking-wide ml-1">{q.question}</p>
+                          <textarea 
+                            required={q.required}
+                            rows={3} 
+                            className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:border-[#ab7e31]/30 outline-none font-light leading-relaxed placeholder:text-gray-800 transition-all focus:bg-black"
+                            placeholder="Type your response..."
+                          ></textarea>
                         </div>
                       ))}
                     </div>
 
-                    <div className="pt-10 flex space-x-4">
+                    <div className="pt-12 pb-6 flex space-x-4">
                       <button type="button" onClick={prevStep} className="w-1/3 py-5 glass text-white font-black rounded-2xl text-[10px] uppercase tracking-widest hover:bg-white/5 border border-white/10 transition-all">
                         Back
                       </button>
