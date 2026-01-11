@@ -43,7 +43,7 @@ const App: React.FC = () => {
             <Route path="/terms" element={<TermsOfService />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer onBookNow={openModal} />
         <IntakeFormModal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </Router>

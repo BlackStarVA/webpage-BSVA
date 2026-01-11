@@ -26,7 +26,11 @@ const FooterLogo = () => (
   </div>
 );
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onBookNow: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onBookNow }) => {
   return (
     <footer className="bg-black border-t border-white/5 pt-20 pb-12 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#ab7e31]/30 to-transparent"></div>
@@ -51,6 +55,14 @@ const Footer: React.FC = () => {
               <li><Link to="/portal" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Client Portal</Link></li>
               <li><Link to="/assistant" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Assistant Portal</Link></li>
               <li><Link to="/careers" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Join the 0.1%</Link></li>
+              <li>
+                <button 
+                  onClick={onBookNow} 
+                  className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest text-left"
+                >
+                  Intake Protocol
+                </button>
+              </li>
             </ul>
           </div>
 
