@@ -22,16 +22,18 @@ const Careers: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4 space-y-12 lg:sticky lg:top-32">
+            {/* Qualifications Card */}
             <div className="glass p-10 rounded-[2.5rem] border-white/5 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-6 opacity-5">
-                <i className="fas fa-star text-7xl text-[#ab7e31]"></i>
+                <i className="fas fa-user-check text-7xl text-[#ab7e31]"></i>
               </div>
-              <h2 className="text-2xl font-black logo-font text-white mb-8 uppercase tracking-widest">Candidate Perks</h2>
+              <h2 className="text-2xl font-black logo-font text-white mb-8 uppercase tracking-widest">Qualifications & Terms</h2>
               <div className="space-y-8">
                 {[
-                  { title: "Remote Autonomy", desc: "Work from anywhere while supporting world-class founders.", icon: "fa-globe-americas" },
-                  { title: "High-Tier Projects", desc: "Gain exposure to complex business operations and strategic finance.", icon: "fa-shield-halved" },
-                  { title: "Texas Work Ethic", desc: "Be part of a team that values reliability, integrity, and proactive results.", icon: "fa-bolt" }
+                  { title: "Experience", desc: "7+ years supporting C-Suite executives or Founders.", icon: "fa-user-tie" },
+                  { title: "Tech Stack", desc: "Advanced proficiency in MS Office, Google Workspace, and Zoom/Slack.", icon: "fa-laptop-code" },
+                  { title: "Soft Skills", desc: "High EQ, exceptional communication, and strict confidentiality.", icon: "fa-comments" },
+                  { title: "Work Style", desc: "Proactive, autonomous problem-solver.", icon: "fa-lightbulb" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-start group">
                     <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center mr-4 border border-white/10 group-hover:bg-[#ab7e31]/20 group-hover:border-[#ab7e31]/50 transition-all shrink-0">
@@ -44,16 +46,37 @@ const Careers: React.FC = () => {
                   </div>
                 ))}
               </div>
+              
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-center text-[9px] text-[#ab7e31]/60 font-black uppercase tracking-widest">
+                <i className="fas fa-check-double mr-2"></i>
+                <span className="uppercase">required to be considered for the position</span>
+              </div>
             </div>
 
-            <div className="p-8 bg-[#ab7e31]/5 border border-[#ab7e31]/10 rounded-[2.5rem]">
-              <h3 className="text-[#ab7e31] font-black text-[10px] uppercase tracking-[0.3em] mb-4">Logistics Notice</h3>
-              <p className="text-gray-400 text-xs leading-relaxed font-light mb-4">
-                Black Star VA operates exclusively on <span className="text-white font-bold underline underline-offset-4 decoration-[#ab7e31]/50">1099 Independent Contractor</span> agreements.
-              </p>
-              <div className="flex items-center text-[9px] text-[#ab7e31]/60 font-black uppercase tracking-widest">
-                <i className="fas fa-file-contract mr-2"></i>
-                <span>Contract-to-Partnership Model</span>
+            {/* Terms Card (Gavel) */}
+            <div className="glass p-10 rounded-[2.5rem] border-[#ab7e31]/20 relative overflow-hidden bg-[#ab7e31]/5">
+              <div className="absolute top-0 right-0 p-6 opacity-10">
+                <i className="fas fa-gavel text-6xl text-[#ab7e31]"></i>
+              </div>
+              <h3 className="text-[#ab7e31] font-black text-xl uppercase tracking-widest mb-8">Terms & Logistics</h3>
+              <div className="space-y-6">
+                {[
+                  { desc: "1099 Independent Contractor (Self-employed; no benefits/insurance).", icon: "fa-file-contract" },
+                  { desc: "Must provide own hardware, software, and high-speed internet.", icon: "fa-desktop" },
+                  { desc: "Remote (U.S. Only), with availability during your time zone business hours.", icon: "fa-clock" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start">
+                    <div className="w-8 h-8 flex items-center justify-center mr-3 shrink-0">
+                      <i className={`fas ${item.icon} text-[#ab7e31]/70 text-xs`}></i>
+                    </div>
+                    <p className="text-gray-400 text-xs leading-relaxed font-light">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-center text-[9px] text-[#ab7e31]/60 font-black uppercase tracking-widest">
+                <i className="fas fa-shield-halved mr-2"></i>
+                <span className="uppercase">required to be considered for the position</span>
               </div>
             </div>
           </div>
