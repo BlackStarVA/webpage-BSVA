@@ -194,7 +194,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is there a trial period?",
-    answer: "No there isn't a trial period but all first timers you do receive 4 hours additional on the first month or you can span it out to 2 months max."
+    answer: "No, there is not a trial period. However, all new clients receive $100 off their first month. Please note that there is a minimum commitment of a 3-month contract applied to this discount."
   },
   {
     question: "Where are Black Star specialists located?",

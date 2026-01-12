@@ -54,13 +54,13 @@ const Footer: React.FC<FooterProps> = ({ onBookNow }) => {
               <li><Link to="/faq" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Help Center</Link></li>
               <li><Link to="/portal" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Client Portal</Link></li>
               <li><Link to="/assistant" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Assistant Portal</Link></li>
-              <li><Link to="/careers" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Join the 0.1%</Link></li>
+              <li><Link to="/careers" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Join Black Star VA</Link></li>
               <li>
                 <button 
                   onClick={onBookNow} 
                   className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest text-left"
                 >
-                  Intake Protocol
+                  Client Intake form
                 </button>
               </li>
             </ul>

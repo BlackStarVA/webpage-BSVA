@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -61,7 +60,6 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
     { name: 'About', path: '/about', icon: 'fa-info-circle' },
     { name: 'Client Portal', path: '/portal', icon: 'fa-user-shield' },
     { name: 'FAQ', path: '/faq', icon: 'fa-question-circle' },
-    { name: 'Careers', path: '/careers', icon: 'fa-briefcase' },
   ];
 
   useEffect(() => {
