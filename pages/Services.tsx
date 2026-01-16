@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { PRICING_PLANS, BOOKKEEPING_PLANS } from '../constants';
-
-interface ServicesProps {
-  onBookNow: () => void;
-}
 
 const ServiceCard = ({ title, icon, tasks }: { title: string, icon: string, tasks: string[] }) => (
   <div className="reveal glass p-10 rounded-[2.5rem] border-white/5 hover:border-[#ab7e31]/30 transition-all group h-full flex flex-col">
@@ -23,8 +19,9 @@ const ServiceCard = ({ title, icon, tasks }: { title: string, icon: string, task
   </div>
 );
 
-const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
+const Services: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'ea' | 'bookkeeping'>('ea');
 
   useEffect(() => {
@@ -59,7 +56,7 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
 
     return (
       <button 
-        onClick={onBookNow} 
+        onClick={() => navigate('/intake')} 
         className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
           plan.recommended 
             ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/10' 
@@ -171,7 +168,7 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
               <p className="text-gray-400 text-lg md:text-2xl mb-16 max-w-4xl mx-auto font-light leading-relaxed">
                 Our specialists are equipped for bespoke missions beyond standard tiers—from <br className="hidden md:block" /> technical architecture to discrete personal concierge services.
               </p>
-              <button onClick={onBookNow} className="px-16 py-6 bg-white text-black font-black rounded-xl hover:bg-[#ab7e31] transition-all text-[11px] font-black tracking-[0.4em] uppercase shadow-2xl flex items-center justify-center mx-auto">
+              <button onClick={() => navigate('/intake')} className="px-16 py-6 bg-white text-black font-black rounded-xl hover:bg-[#ab7e31] transition-all text-[11px] font-black tracking-[0.4em] uppercase shadow-2xl flex items-center justify-center mx-auto">
                 BOOK DISCOVERY CALL
               </button>
             </div>
@@ -248,7 +245,7 @@ const Services: React.FC<ServicesProps> = ({ onBookNow }) => {
               </div>
 
               <button 
-                onClick={onBookNow} 
+                onClick={() => navigate('/intake')} 
                 className="px-20 py-8 bg-[#ab7e31] text-black font-black rounded-xl text-[12px] tracking-[0.4em] uppercase hover:bg-white transition-all shadow-2xl shadow-[#ab7e31]/20 mx-auto"
               >
                 BOOK DISCOVERY CALL

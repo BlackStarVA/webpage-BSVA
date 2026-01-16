@@ -26,11 +26,7 @@ const FooterLogo = () => (
   </div>
 );
 
-interface FooterProps {
-  onBookNow: () => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onBookNow }) => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-black border-t border-white/5 pt-20 pb-12 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#ab7e31]/30 to-transparent"></div>
@@ -40,9 +36,15 @@ const Footer: React.FC<FooterProps> = ({ onBookNow }) => {
           <div className="col-span-1 md:col-span-2">
             <FooterLogo />
             <div className="flex space-x-8">
-              <a href="#" className="text-gray-500 hover:text-[#ab7e31] transition-all transform hover:-translate-y-1"><i className="fab fa-linkedin-in text-xl"></i></a>
-              <a href="#" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-instagram text-xl"></i></a>
-              <a href="#" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-facebook-f text-xl"></i></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ab7e31] transition-all transform hover:-translate-y-1">
+                <i className="fab fa-linkedin-in text-xl"></i>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1">
+                <i className="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="https://www.facebook.com/BlackStarVa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1">
+                <i className="fab fa-facebook-f text-xl"></i>
+              </a>
             </div>
           </div>
           
@@ -56,12 +58,12 @@ const Footer: React.FC<FooterProps> = ({ onBookNow }) => {
               <li><Link to="/assistant" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Assistant Portal</Link></li>
               <li><Link to="/careers" className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest">Join Black Star VA</Link></li>
               <li>
-                <button 
-                  onClick={onBookNow} 
+                <Link 
+                  to="/intake" 
                   className="text-gray-400 hover:text-[#ab7e31] transition-colors text-xs font-bold uppercase tracking-widest text-left"
                 >
                   Client Intake form
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

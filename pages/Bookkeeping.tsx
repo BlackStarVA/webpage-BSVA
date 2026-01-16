@@ -1,10 +1,6 @@
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BOOKKEEPING_PLANS } from '../constants';
-
-interface BookkeepingProps {
-  onBookNow: () => void;
-}
 
 const FinanceBlock = ({ title, icon, tasks }: { title: string, icon: string, tasks: string[] }) => (
   <div className="reveal glass p-10 rounded-[2.5rem] border-white/5 hover:border-[#ab7e31]/30 transition-all group h-full flex flex-col">
@@ -23,7 +19,8 @@ const FinanceBlock = ({ title, icon, tasks }: { title: string, icon: string, tas
   </div>
 );
 
-const Bookkeeping: React.FC<BookkeepingProps> = ({ onBookNow }) => {
+const Bookkeeping: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black min-h-screen">
       {/* Hero */}
@@ -38,7 +35,7 @@ const Bookkeeping: React.FC<BookkeepingProps> = ({ onBookNow }) => {
             Your ledger is the map of your impact. We provide the crystal-clear financial oversight founders need to make high-stakes decisions with absolute confidence.
           </p>
           <button 
-            onClick={onBookNow}
+            onClick={() => navigate('/intake')}
             className="px-12 py-5 bg-[#ab7e31] text-black font-black rounded-2xl text-sm uppercase tracking-[0.3em] hover:bg-white transition-all shadow-2xl"
           >
             Book Discovery Call
@@ -152,7 +149,7 @@ const Bookkeeping: React.FC<BookkeepingProps> = ({ onBookNow }) => {
                   ))}
                 </ul>
                 <button 
-                  onClick={onBookNow}
+                  onClick={() => navigate('/intake')}
                   className={`w-full py-5 rounded-2xl font-black text-[10px] tracking-[0.2em] uppercase transition-all ${
                     plan.recommended ? 'bg-[#ab7e31] text-black shadow-lg shadow-[#ab7e31]/20' : 'bg-white/5 text-white border border-white/10'
                   }`}
@@ -171,7 +168,7 @@ const Bookkeeping: React.FC<BookkeepingProps> = ({ onBookNow }) => {
           <div className="absolute inset-0 bg-[#ab7e31]/5 pointer-events-none"></div>
           <h2 className="text-4xl md:text-6xl font-black logo-font text-white mb-8 leading-none tracking-tighter uppercase">Your Ledger <span className="text-[#ab7e31] italic font-light">Perfected.</span></h2>
           <p className="text-gray-400 text-lg mb-12 font-light">Precision isn't optional. It's the standard. Let's stabilize your foundation.</p>
-          <button onClick={onBookNow} className="px-12 py-5 bg-[#ab7e31] text-black font-black rounded-2xl text-[10px] tracking-[0.3em] uppercase hover:bg-white transition-all shadow-2xl">Select Plan</button>
+          <button onClick={() => navigate('/intake')} className="px-12 py-5 bg-[#ab7e31] text-black font-black rounded-2xl text-[10px] tracking-[0.3em] uppercase hover:bg-white transition-all shadow-2xl">Select Plan</button>
         </div>
       </section>
     </div>

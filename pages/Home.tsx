@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SERVICES, TESTIMONIALS } from '../constants';
 
-interface HomeProps {
-  onBookNow: () => void;
-}
-
-const Home: React.FC<HomeProps> = ({ onBookNow }) => {
+const Home: React.FC = () => {
+  const navigate = useNavigate();
   const coreServices = SERVICES.filter(s => s.id === 'admin' || s.id === 'bookkeeping' || s.id === 'creative');
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -111,7 +108,7 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
               EXPLORE PLANS <i className="fas fa-arrow-right ml-4 group-hover:translate-x-1 transition-transform"></i>
             </Link>
             <button 
-              onClick={onBookNow}
+              onClick={() => navigate('/intake')}
               className="w-full sm:w-auto px-12 py-6 bg-[#ab7e31] text-black font-black rounded-2xl hover:bg-white transition-all text-[11px] uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(171,126,49,0.3)] group flex items-center justify-center"
             >
               BOOK DISCOVERY CALL <i className="fas fa-phone ml-4 group-hover:rotate-12 transition-transform"></i>
@@ -275,7 +272,7 @@ const Home: React.FC<HomeProps> = ({ onBookNow }) => {
                Our specialists are equipped for bespoke missions beyond standard tiers—from <br className="hidden md:block" /> technical architecture to discrete personal concierge services.
              </p>
              <button 
-               onClick={onBookNow}
+               onClick={() => navigate('/intake')}
                className="px-16 py-6 bg-white text-black font-black rounded-xl hover:bg-[#ab7e31] transition-all text-[11px] font-black tracking-[0.4em] uppercase shadow-2xl flex items-center justify-center mx-auto"
              >
                BOOK DISCOVERY CALL

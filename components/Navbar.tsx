@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const DynamicLogo = () => (
   <div className="flex items-center space-x-4 group cursor-pointer relative">
@@ -46,14 +46,11 @@ const DynamicLogo = () => (
   </div>
 );
 
-interface NavbarProps {
-  onBookNow: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const secondaryLinks = [
@@ -117,7 +114,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
               </Link>
 
               <button
-                onClick={onBookNow}
+                onClick={() => navigate('/intake')}
                 className="bg-[#ab7e31] hover:bg-white text-black px-8 py-3 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_25px_rgba(171,126,49,0.5)] border border-[#ab7e31]/20 hover:border-white"
               >
                 BOOK DISCOVERY CALL
@@ -186,7 +183,7 @@ const Navbar: React.FC<NavbarProps> = ({ onBookNow }) => {
             </div>
 
             <div className="pt-6">
-              <button onClick={onBookNow} className="w-full py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-widest shadow-2xl">
+              <button onClick={() => navigate('/intake')} className="w-full py-4 bg-[#ab7e31] text-black font-black rounded-xl text-xs uppercase tracking-widest shadow-2xl">
                 BOOK DISCOVERY CALL
               </button>
             </div>

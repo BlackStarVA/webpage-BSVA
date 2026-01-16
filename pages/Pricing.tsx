@@ -1,11 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PRICING_PLANS, SERVICES, BOOKKEEPING_PLANS, PERKS, FAQS } from '../constants';
 
-interface PricingProps {
-  onBookNow: () => void;
-}
-
-const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
+const Pricing: React.FC = () => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const calculatorServices = useMemo(() => 
     SERVICES.filter(s => s.id === 'admin' || s.id === 'bookkeeping')
@@ -90,7 +88,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
 
     return (
       <button 
-        onClick={onBookNow}
+        onClick={() => navigate('/intake')}
         className={`w-full py-5 rounded-2xl font-black text-[11px] tracking-[0.2em] uppercase transition-all ${
           plan.recommended 
             ? 'bg-[#ab7e31] text-black hover:bg-white shadow-xl shadow-[#ab7e31]/20' 
@@ -309,7 +307,7 @@ const Pricing: React.FC<PricingProps> = ({ onBookNow }) => {
                     Includes dedicated U.S-based specialist support, mission-ready tech stack integration, and BSSP security encryption.
                   </div>
                   <button 
-                    onClick={onBookNow}
+                    onClick={() => navigate('/intake')}
                     className="w-full py-6 bg-[#ab7e31] text-black font-black rounded-2xl text-[10px] tracking-[0.2em] uppercase hover:bg-white transition-all shadow-2xl shadow-[#ab7e31]/20"
                   >
                     SELECT PLAN
