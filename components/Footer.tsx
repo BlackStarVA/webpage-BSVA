@@ -36,10 +36,10 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <FooterLogo />
             <div className="flex space-x-8">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ab7e31] transition-all transform hover:-translate-y-1">
+              <a href="https://www.linkedin.com/company/black-star-va" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#ab7e31] transition-all transform hover:-translate-y-1">
                 <i className="fab fa-linkedin-in text-xl"></i>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1">
+              <a href="https://www.instagram.com/blackstar_va/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1">
                 <i className="fab fa-instagram text-xl"></i>
               </a>
               <a href="https://www.facebook.com/BlackStarVa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:-translate-y-1">
