@@ -153,7 +153,7 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
 export const PERKS = [
   {
     title: "100% U.S-Based",
-    desc: "We do not outsource. Every specialist is a vetted, U.S-based professional operating from our hub for maximum cultural and strategic alignment.",
+    desc: "Every specialist is a vetted, U.S-based professional operating from our hub for maximum cultural and strategic alignment.",
     icon: "fa-map-location-dot"
   },
   {
@@ -240,5 +240,53 @@ export const TESTIMONIALS = [
     name: "A. Sterling",
     role: "Series B Founder",
     img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=100"
+  }
+];
+
+export const BLOG_POSTS = [
+  {
+    id: 'reclaiming-founder-focus-hasanna',
+    title: 'Strategic Leverage: Why Every High-Velocity Founder Needs a Partner, Not Just an Assistant',
+    excerpt: 'Hasanna Garcia, Founder of Black Star VA, explains the critical shift from task-delegation to strategic partnership and how it unlocks exponential business growth.',
+    category: 'Founding Principles',
+    date: 'Nov 02, 2024',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1627161683077-e34782c24d81?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 'leveraging-anticipatory-logic',
+    title: 'Leveraging Anticipatory Logic: The Silent Edge of Elite EAs',
+    excerpt: 'How top-tier strategic assistants predict bottlenecks before they manifest, ensuring founder momentum remains unbroken.',
+    category: 'Strategy',
+    date: 'Oct 24, 2024',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 'fractional-bookkeeping-vs-full-time',
+    title: 'The Case for Fractional Finance: High-Impact Bookkeeping',
+    excerpt: 'Why high-velocity startups are moving away from traditional full-time hires toward strategic, fractional financial oversight.',
+    category: 'Finance',
+    date: 'Oct 18, 2024',
+    readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 'scaling-without-burnout',
+    title: 'Scaling Without Burnout: Delegation Protocols for Founders',
+    excerpt: 'The critical difference between delegating tasks and delegating outcomes. How to build a support structure that scales.',
+    category: 'Leverage',
+    date: 'Oct 12, 2024',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 'securing-executive-data',
+    title: 'Fortifying the Command Center: Modern Data Security',
+    excerpt: 'A deep dive into the protocols required to protect sensitive founder data in an increasingly decentralized work environment.',
+    category: 'Security',
+    date: 'Oct 05, 2024',
+    readTime: '4 min read',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800'
   }
 ];

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const DynamicLogo = () => (
+// Fix: Corrected the broken import and started DynamicLogo definition properly.
+export const DynamicLogo = () => (
   <div className="flex items-center space-x-4 group cursor-pointer relative">
     <div className="relative logo-star-pulse shrink-0">
       <svg width="46" height="46" viewBox="0 0 100 100">
@@ -45,6 +45,8 @@ const DynamicLogo = () => (
     </div>
   </div>
 );
+
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
