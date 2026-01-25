@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FAQS } from '../constants';
@@ -14,15 +13,16 @@ const FAQ: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <div className="text-center mb-32 relative pt-20">
-          {/* Overlapping Header from Screenshots - Updated to Frequently Asked */}
+          {/* Overlapping Header Branding */}
           <div className="absolute inset-0 flex flex-col items-center justify-center -top-10 pointer-events-none select-none">
             <span className="text-6xl md:text-[9rem] font-black text-white/10 uppercase tracking-tighter leading-none">
-              FREQUENTLY
+              KNOWLEDGE
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-8xl logo-font font-black text-[#ab7e31] relative z-10 uppercase tracking-tighter leading-none mt-4">
-            ASKED QUESTIONS.
+          <span className="text-[#ab7e31] font-black tracking-[0.5em] uppercase text-[10px] mb-4 block relative z-10">Knowledge Center</span>
+          <h1 className="text-5xl md:text-8xl logo-font font-black text-white relative z-10 uppercase tracking-tighter leading-none mt-4">
+            Strategic <br /><span className="text-[#ab7e31] italic font-light lowercase">Intelligence.</span>
           </h1>
           
           <p className="text-gray-400 font-light max-w-lg mx-auto italic text-sm md:text-base leading-relaxed mt-8">
