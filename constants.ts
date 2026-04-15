@@ -41,71 +41,68 @@ export const SERVICES: Service[] = [
 export const PRICING_PLANS: PricingPlan[] = [
   {
     name: 'Entrepreneur Plan',
-    price: '$549',
-    hours: 12,
+    price: '$1,000',
+    hours: 25,
     features: [
       'Dedicated Strategic Assistant',
-      '12 Hours of Monthly Support',
+      '25 Hours of Monthly Support',
       'U.S-Based Elite Professional',
       'Inbox & Calendar Management',
       'Standard 24h Response Window',
       'Password Security Protocol',
       'No Long-Term Commitment'
-    ],
-    stripeLink: 'https://buy.stripe.com/dRm8wP79w0ngfOs83kco001'
+    ]
   },
   {
     name: 'Small Business Plan',
-    price: '$1,099',
-    hours: 24,
+    price: '$2,000',
+    hours: 50,
     features: [
       'Dedicated Strategic Assistant',
-      '24 Hours of Monthly Support',
+      '50 Hours of Monthly Support',
       'Priority Response Time (12h)',
       'Advanced Travel & Logistics',
       'Complex Project Management',
       'Quarterly Performance Audits',
       'Dedicated Success Manager'
     ],
-    recommended: true,
-    stripeLink: 'https://buy.stripe.com/4gMdR951o1rkcCg0ASco002'
+    recommended: true
   },
   {
     name: 'Team Plan',
-    price: '$1,299',
-    hours: 36,
+    price: '$3,200',
+    hours: 80,
     features: [
       'Dedicated Strategic Assistant',
-      '36 Hours of Monthly Support',
+      '80 Hours of Monthly Support',
       'High-Priority Status (Instant)',
       'Multi-User Access (Up to 3)',
       'Advanced Operations Support',
       'Technical Workflow Optimization',
       'VIP Concierge Services'
-    ],
-    stripeLink: 'https://buy.stripe.com/5kQ6oH0L87PI31GfvMco003'
+    ]
   },
   {
     name: 'Enterprise Plan',
-    price: '$1,799',
-    hours: 50,
+    price: 'Bespoke',
+    hours: 160,
     features: [
-      'Top-Tier Dedicated EA Partner',
-      '50 Hours of Monthly Support',
+      'Full-Time Dedicated EA Partner',
+      '160+ Hours of Monthly Support',
       'Unlimited Team Access',
       'Strategic Business Integration',
       '24/7 Crisis Response Access',
       'Full Document Preparation',
       'White-Glove Success Concierge'
-    ],
-    stripeLink: 'https://buy.stripe.com/9B68wP1Pc5HA8m083kco004' 
+    ]
   }
 ];
 
 export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
   {
     name: 'Essential Ledger',
-    price: '$300',
+    price: '$1,100',
+    hours: 20,
     description: 'Perfect for small businesses and solopreneurs seeking clarity.',
     features: [
       'Monthly Bank Reconciliation',
@@ -114,12 +111,12 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'Balance Sheet Preparation',
       'Email Support Access',
       'Cloud Software Integration'
-    ],
-    stripeLink: 'https://buy.stripe.com/14AcN551o6LE9q42J0co005' 
+    ]
   },
   {
     name: 'Precision Growth',
-    price: '$750',
+    price: '$2,200',
+    hours: 40,
     description: 'For scaling teams with higher transaction volume.',
     features: [
       'Accounts Payable & Receivable',
@@ -130,13 +127,12 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'Cash Flow Forecasting',
       'U.S-Based Bookkeeper'
     ],
-    recommended: true,
-    stripeLink: 'https://buy.stripe.com/14AfZhalI7PIdGk6Zgco006' 
+    recommended: true
   },
   {
     name: 'Full-Cycle Finance',
-    price: '$1,500',
-    description: 'Complete back-office financial management.',
+    price: 'Bespoke',
+    description: 'Complete back-office financial management. Full-time support.',
     features: [
       'Unlimited Reconciliations',
       'Full Payroll Management',
@@ -145,8 +141,7 @@ export const BOOKKEEPING_PLANS: BookkeepingPlan[] = [
       'Monthly Advisory Call',
       'Budget vs. Actual Reporting',
       'Dedicated Finance Lead'
-    ],
-    stripeLink: 'https://buy.stripe.com/4gM00jeBY3zsdGk1EWco007' 
+    ]
   }
 ];
 

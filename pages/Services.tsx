@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import PricingCalculator from '../components/PricingCalculator';
 import { PRICING_PLANS, BOOKKEEPING_PLANS } from '../constants';
 
 const ServiceCard = ({ title, icon, tasks }: { title: string, icon: string, tasks: string[] }) => (
@@ -35,6 +36,8 @@ const Services: React.FC = () => {
   }, [location]);
 
   const renderPlanButton = (plan: any) => {
+    const isEnterprise = plan.name.toLowerCase().includes('enterprise');
+    const isFullTimeBookkeeping = plan.name.toLowerCase().includes('full-cycle');
     return (
       <button 
         onClick={() => navigate('/intake')} 
@@ -44,7 +47,7 @@ const Services: React.FC = () => {
             : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
         }`}
       >
-        BOOK DISCOVERY CALL
+        {isEnterprise || isFullTimeBookkeeping ? 'SUBMIT REQUEST FOR MORE INFO' : 'BOOK DISCOVERY CALL'}
       </button>
     );
   };
@@ -91,6 +94,14 @@ const Services: React.FC = () => {
               : "Your ledger is the map of your impact. We provide the crystal-clear financial oversight founders need to make high-stakes decisions with absolute confidence."
             }
           </p>
+          <div className="flex justify-center mb-12">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-xl font-black text-[10px] tracking-[0.3em] uppercase hover:bg-white/10 transition-all"
+            >
+              Request More Information
+            </button>
+          </div>
         </div>
       </section>
 
@@ -121,10 +132,13 @@ const Services: React.FC = () => {
                     )}
                     <div className="mb-8 text-left">
                       <h3 className="text-xl font-black logo-font text-white mb-4 uppercase tracking-tighter">{plan.name}</h3>
-                      <div className="flex items-baseline space-x-2">
-                        <span className="text-2xl logo-font font-black text-[#ab7e31] tracking-tighter uppercase italic">Bespoke Retainer</span>
+                      <div className="flex flex-col items-start mb-4">
+                        <span className="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] mb-1">starting at</span>
+                        <div className="flex items-baseline space-x-2">
+                          <span className="text-2xl logo-font font-black text-[#ab7e31] tracking-tighter uppercase italic">{plan.price}</span>
+                        </div>
                       </div>
-                      <p className="text-gray-500 text-[10px] font-black mt-4 uppercase tracking-[0.2em]">{plan.hours} Hours Monthly</p>
+                      <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em]">{plan.hours} Hours Monthly</p>
                     </div>
                     <ul className="space-y-5 mb-10 flex-grow text-left">
                       {plan.features.slice(0, 5).map((f, idx) => (
@@ -139,6 +153,9 @@ const Services: React.FC = () => {
               </div>
             </div>
           </section>
+          <div className="max-w-7xl mx-auto px-4">
+            <PricingCalculator />
+          </div>
         </>
       ) : (
         <>
@@ -166,10 +183,16 @@ const Services: React.FC = () => {
                     )}
                     <div className="mb-8 text-left">
                       <h3 className="text-2xl font-black logo-font text-white mb-4 uppercase tracking-tighter">{plan.name}</h3>
-                      <div className="flex items-baseline space-x-2">
-                        <span className="text-3xl logo-font font-black text-[#ab7e31] tracking-tighter uppercase italic">Strategic Audit</span>
+                      <div className="flex flex-col items-start mb-4">
+                        <span className="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] mb-1">starting at</span>
+                        <div className="flex items-baseline space-x-2">
+                          <span className="text-3xl logo-font font-black text-[#ab7e31] tracking-tighter uppercase italic">{plan.price}</span>
+                        </div>
                       </div>
-                      <p className="text-gray-500 text-[11px] font-bold mt-4 uppercase tracking-[0.2em] leading-relaxed">{plan.description}</p>
+                      {plan.hours && (
+                        <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em] mb-4">{plan.hours} Hours Monthly</p>
+                      )}
+                      <p className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.2em] leading-relaxed">{plan.description}</p>
                     </div>
                     <ul className="space-y-5 mb-10 flex-grow text-left">
                       {plan.features.map((f, idx) => (
@@ -184,6 +207,9 @@ const Services: React.FC = () => {
               </div>
             </div>
           </section>
+          <div className="max-w-7xl mx-auto px-4">
+            <PricingCalculator />
+          </div>
         </>
       )}
       

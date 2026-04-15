@@ -19,6 +19,7 @@ export interface PricingPlan {
 export interface BookkeepingPlan {
   name: string;
   price: string;
+  hours?: number;
   description: string;
   features: string[];
   recommended?: boolean;
