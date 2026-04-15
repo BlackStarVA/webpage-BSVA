@@ -26,6 +26,57 @@ const Pricing: React.FC = () => {
   return (
     <div className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Executive Assistant Section */}
+        <div className="mb-40">
+           <div className="flex items-center space-x-4 mb-16">
+              <div className="h-px bg-white/10 flex-grow"></div>
+              <h2 className="text-[11px] font-black text-gray-500 uppercase tracking-[0.5em] whitespace-nowrap">Executive Assistant Tiers</h2>
+              <div className="h-px bg-white/10 flex-grow"></div>
+           </div>
+           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {PRICING_PLANS.map((plan, i) => (
+              <div 
+                key={i} 
+                className={`flex flex-col relative p-10 rounded-[2.5rem] border transition-all duration-500 h-full ${
+                  plan.recommended 
+                    ? 'bg-black border-[#ab7e31] shadow-[0_0_40px_rgba(171,126,49,0.15)] scale-105 z-10' 
+                    : 'bg-[#0a0a0a] border-white/5 hover:border-white/10'
+                }`}
+              >
+                {plan.recommended && (
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#ab7e31] text-black text-[9px] font-black py-2.5 px-8 rounded-full uppercase tracking-[0.2em] shadow-xl whitespace-nowrap">
+                    Most Popular
+                  </div>
+                )}
+                
+                <div className="mb-10 text-center sm:text-left">
+                  <h3 className="text-xl font-black logo-font text-white mb-6 uppercase tracking-tighter">{plan.name}</h3>
+                  <div className="flex flex-col items-center sm:items-start mb-4">
+                    <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-1">starting at</span>
+                    <div className="flex items-baseline space-x-2">
+                      <span className="text-3xl logo-font font-black text-[#ab7e31] tracking-tighter uppercase italic">{plan.price}</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                    {plan.hours} Hours Monthly Support
+                  </p>
+                </div>
+
+                <ul className="space-y-5 mb-12 flex-grow">
+                  {plan.features.map((f, idx) => (
+                    <li key={idx} className="flex items-start text-gray-400 text-xs leading-relaxed font-medium">
+                      <i className="fas fa-check text-[9px] text-[#ab7e31] mt-1 mr-4"></i>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {renderPlanButton(plan)}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Bookkeeping Section */}
         <div className="mb-40">
            <div className="flex items-center space-x-4 mb-16">
